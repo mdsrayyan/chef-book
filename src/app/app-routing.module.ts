@@ -1,11 +1,29 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 
-const routes: Routes = [];
+const defaultRoute = '/dashboard';
+const APP_ROUTES: Routes = [
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    data: {title: 'Dashboard'}
+  },
+  {path: '', redirectTo: defaultRoute, pathMatch: 'full'},
+  {path: '**', redirectTo: defaultRoute}
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    APP_ROUTES,
+    {
+      enableTracing: false, // <-- set to 'true' for debugging purposes only
+      useHash: false,
+      relativeLinkResolution: 'legacy'
+    }
+  )
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

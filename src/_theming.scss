@@ -1,5 +1,30 @@
 @import '~@angular/material/theming';
 
+
+@include mat-core();
+$book-app-primary: mat-palette($mat-grey);
+$book-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$book-app-warn:    mat-palette($mat-red);
+$book-app-theme: mat-light-theme((
+  color: (
+    primary: $book-app-primary,
+    accent: $book-app-accent,
+    warn: $book-app-warn,
+  )
+));
+@include angular-material-theme($book-app-theme);
+
+
+/**********************************************     TYPOGRAPHY     *************************************************/
+$book-font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$book--mat-typography: mat-typography-config(
+  $font-family: $book-font-family
+);
+
+@include angular-material-typography($book--mat-typography);
+
+
 /*****************************     COLORS     *********************************/
 $book-theme-colors: (
   light_grey: #CCCCCC,
