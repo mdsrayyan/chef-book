@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+/*****************************     COLORS     *********************************/
+$book-theme-colors: (
+  light_grey: #CCCCCC,
+  lightest_grey: #EBEBEB,
+  white: #FFFFFF,
+  off_white: #FBFBFB,
+  dark-grey: #454545
+);
+
+$book-color--primary: mat-color($book-theme-colors, light_grey);
+$book-color-secondary: mat-color($book-theme-colors, lightest_grey);
+$book-color-background: mat-color($book-theme-colors, dark-grey);

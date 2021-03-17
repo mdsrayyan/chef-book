@@ -1,0 +1,17 @@
+.header-wrapper {
+  width: 100%;
+  padding: 0 2rem;
+  height: 6rem;
+  border-bottom: 1px solid #d8d8d8;
+  .header {
+    width: 80%;
+    margin: 0 auto;
+    .logo {
+      display: inline-block;
+      img {
+        height: 6rem;
+      }
+    }
+  }
+}
+
