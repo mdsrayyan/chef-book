@@ -9,13 +9,18 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FavouriteWidgetComponent } from './components/favourite-widget/favourite-widget.component';
+import { ChefIntroWidgetComponent } from './components/chef-intro-widget/chef-intro-widget.component';
+import { RecentWidgetComponent } from './components/recent-widget/recent-widget.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
     GlobalSearchComponent,
-    FavouriteWidgetComponent
+    FavouriteWidgetComponent,
+    ChefIntroWidgetComponent,
+    RecentWidgetComponent
   ],
   imports: [
     CommonModule,
@@ -23,17 +28,21 @@ import { FavouriteWidgetComponent } from './components/favourite-widget/favourit
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   exports: [
     FooterComponent,
     HeaderComponent,
     GlobalSearchComponent,
     FavouriteWidgetComponent,
+    ChefIntroWidgetComponent,
+    RecentWidgetComponent,
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

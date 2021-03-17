@@ -1,7 +1,9 @@
 <div fxLayout="column" fxLayoutGap="1rem" fxFlex="100">
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <span>Favourites</span>
-    <button mat-button> View More</button>
+    <span fxLayoutGap="0.5rem" fxLayoutAlign="center center">
+      <mat-icon color="accent">favorite</mat-icon><span>Favourites</span>
+    </span>
+    <button mat-button> View All </button>
   </div>
   <div fxLayout="row" fxLayoutGap="1rem" fxFlex="100">
     <div fxLayout="column" *ngFor="let imageSrc of [

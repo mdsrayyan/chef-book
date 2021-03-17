@@ -1,4 +1,10 @@
-<div fxFlex="100%" fxLayout="column">
+<div fxFlex="100%" fxLayout="column" fxLayoutGap="2rem">
   <book-favourite-widget></book-favourite-widget>
+  <mat-divider></mat-divider>
+  <div fxLayout="row" fxFlex="100%" fxLayoutGap="2rem">
+    <book-recent-widget fxFlex="70%"></book-recent-widget>
+    <mat-divider [vertical]="true"></mat-divider>
+      <book-chef-intro-widget fxFlex="30%"></book-chef-intro-widget>
+  </div>
 </div>
 

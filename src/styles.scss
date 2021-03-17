@@ -7,7 +7,9 @@ book-root {
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 200;
+  font-size: 100%;
+  letter-spacing: .3px;
+  line-height: 1.875;
   color: $book-color-background;
 }
 
@@ -19,4 +21,11 @@ body {
   margin: 0;
   background: whitesmoke;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .font-medium {
+    font-size: 18px;
+  }
+}
+img{
+  height: auto;
 }
