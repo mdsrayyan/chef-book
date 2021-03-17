@@ -1,19 +1,21 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HeaderComponent} from './comonents/header/header.component';
-import {FooterComponent} from './comonents/footer/footer.component';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
-import {GlobalSearchComponent} from './comonents/global-search/global-search.component';
+import {GlobalSearchComponent} from './components/global-search/global-search.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FavouriteWidgetComponent } from './components/favourite-widget/favourite-widget.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    FavouriteWidgetComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import {MatIconModule} from '@angular/material/icon';
     FooterComponent,
     HeaderComponent,
     GlobalSearchComponent,
+    FavouriteWidgetComponent,
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
