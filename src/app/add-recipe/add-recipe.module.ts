@@ -4,6 +4,8 @@ import { AddRecipeComponent } from './add-recipe.component';
 import {SharedModule} from '../shared/shared.module';
 import {AddRecipeRoutingModule} from './add-recipe-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {NgxDropzoneModule} from 'ngx-dropzone';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -13,7 +15,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     CommonModule,
     SharedModule,
     FlexLayoutModule,
-    AddRecipeRoutingModule
+    ReactiveFormsModule,
+    AddRecipeRoutingModule,
+    NgxDropzoneModule
   ]
 })
 export class AddRecipeModule { }

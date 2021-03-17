@@ -1,15 +1,49 @@
-<form fxLayout="column"
-      fxLayoutGap="1rem">
-<mat-form-field appearance="outline">
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Textarea</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
-</form>
+<form fxLayout="column" fxFlex="100%" fxLayoutGap="2rem" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" [formGroup]="addRecipeForm" >
+    <div fxLayout="row" fxFlex="100%" fxLayoutGap="2rem">
+      <div fxFlex="50%" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Caption</mat-label>
+          <input matInput formControlName="caption">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Preparation Time</mat-label>
+          <input matInput formControlName="preparationTime">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cook Time</mat-label>
+          <input matInput formControlName="cookTime">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Servings</mat-label>
+          <input matInput formControlName="servings">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Ingredients</mat-label>
+          <textarea matInput rows="7" formControlName="ingredients"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Instructions</mat-label>
+          <textarea matInput rows="15" formControlName="instructions"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="form-group" fxFlex="50%">
+        <ngx-dropzone (change)="onSelect($event)">
+          <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </ngx-dropzone>
+      </div>
+    </div>
+    <div fxLayoutAlign="end end">
+      <button class="register-button" mat-raised-button
+              type="submit" color="accent">
+        Create Account
+      </button>
+    </div>
+  </form>
+
