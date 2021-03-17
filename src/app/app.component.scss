@@ -1,9 +1,9 @@
 .book-wrapper {
   width: 100%;
   height: 100%;
+  position: relative;
   .content {
     width: 80%;
-    margin: 0 auto;
-    padding-top: 2rem;
+    margin: 2rem auto;
   }
 }
