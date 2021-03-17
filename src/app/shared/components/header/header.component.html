@@ -4,9 +4,9 @@
       <img alt="FedEx SignUp" src="../../../../assets/chef-book-logo.png">
     </div>
     <span fxFlex="1 1 auto"></span>
-    <div fxLayout="row" fxLayoutGap="2rem" fxFlex="40%">
+    <div fxLayout="row" fxLayoutGap="2rem">
       <div fxLayout="row" fxLayoutGap="1rem" fxLayoutAlign="center center">
-        <button mat-raised-button aria-label="Add Recipe" color="accent">
+        <button mat-raised-button aria-label="Add Recipe" color="accent" (click)="navigate('add-recipe')">
           Add Recipe
         </button>
         <button mat-button aria-label="Example icon-button with a menu">
@@ -16,7 +16,7 @@
           My Recipes
         </button>
       </div>
-      <book-global-search fxFlex="1 1 auto"></book-global-search>
+      <book-global-search fxFlex="1 1 100%"></book-global-search>
     </div>
 
   </div>

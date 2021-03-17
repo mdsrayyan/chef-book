@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'book-header',
@@ -7,10 +8,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(private readonly router: Router) {
   }
 
   ngOnInit(): void {
   }
 
+  navigate(path) {
+    this.router.navigate([`/${path}`]);
+  }
 }
