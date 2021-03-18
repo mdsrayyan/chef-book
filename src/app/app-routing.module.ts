@@ -14,6 +14,11 @@ const APP_ROUTES: Routes = [
     loadChildren: () => import('./add-recipe/add-recipe.module').then(m => m.AddRecipeModule),
     data: {title: 'Add Recipe'}
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
+    data: {title: 'About Me'}
+  },
   {path: '', redirectTo: defaultRoute, pathMatch: 'full'},
   {path: '**', redirectTo: defaultRoute}
 ];
