@@ -12,7 +12,7 @@ const _caseObjectReducer = createReducer(initialState,
   on(CaseObjectActionTypes.favouritesChange, (state, action) => {
     return {
       ...state,
-      myTeamListValue: action.favouritesList
+      favouritesState: action.favouritesList
     };
   })
 );

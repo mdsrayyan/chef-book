@@ -1,10 +1,17 @@
 <div class="recent-widget--wrapper" fxLayout="column" fxLayoutGap="5rem">
-  <div fxLayout="row" fxLayoutGap="1rem" *ngFor="let imageSrc of [1,2,3,4]">
+  <div fxLayout="row" class="recent-recipe-item" fxLayoutGap="1rem" *ngFor="let imageSrc of [1,2,3,4]">
     <div fxFlex="0 0 40">
       <img src="../../../../assets/recipe/French-Toast-Feature-360x495.jpg" alt="Favourites" fxFlex="100">
     </div>
     <div fxFlex="1 1 auto">
-      <span>LEMON CURD</span>
+      <div fxLayoutAlign="space-between center">
+        <span>LEMON CURD</span>
+        <div class="edit-delete--icons" fxLayoutGap="1rem">
+          <button mat-icon-button><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button (click)="addToFavourites()"><mat-icon>favorite_border</mat-icon></button>
+        </div>
+      </div>
       <p class="font-medium">Lemon curd is one of the easiest things to make, it’s a thick spread made from fresh lemons, sugar, eggs, and
         butter. It’s smooth, and creamy in texture with a bright, sweet, and zingy flavor perfect for using in desserts or
         simply spreading on toast for breakfast. Once you make this easy homemade version I…</p>
