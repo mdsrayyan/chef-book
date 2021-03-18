@@ -6,14 +6,9 @@
     <button mat-button> View All </button>
   </div>
   <div fxLayout="row" fxLayoutGap="1rem" fxFlex="100">
-    <div fxLayout="column" *ngFor="let imageSrc of [
-  '../../../../assets/recipe/Cream-puffs-feature-1-360x495.jpg',
-  '../../../../assets/recipe/French-Toast-Feature-360x495.jpg',
-  '../../../../assets/recipe/lemon-cookies-feature-360x495.jpg',
-  '../../../../assets/recipe/No-bake-cheesecake-feature-360x495.jpg'
-  ]" fxFlex="25">
-      <div><img alt="Favourites" fxFlex="100" [src]="imageSrc"></div>
-      <span>Sample Data</span>
+    <div fxLayout="column" *ngFor="let recipe of recipeList.slice(0, 4)" fxFlex="25">
+      <div><img alt="Favourites" fxFlex="100" [src]="recipe.filePath"></div>
+      <span>{{recipe?.title}}</span>
     </div>
   </div>
 </div>

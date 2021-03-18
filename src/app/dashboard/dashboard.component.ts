@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {RecipesService} from '../core/recipes.service';
+import {Recipe} from '../shared/models/book.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'book-dashboard',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  recipeList$: Observable<Recipe[]>;
+  favouriteRecipeList$: Observable<Recipe[]>;
+  recentRecipeList$: Observable<Recipe[]>;
+  constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {
+    this.recipeList$ = this.recipeService.getRecipeList();
+    this.favouriteRecipeList$ = this.recipeService.getFavouriteRecipeList();
+    this.recentRecipeList$ = this.recipeService.getRecentRecipeList();
   }
 
 }

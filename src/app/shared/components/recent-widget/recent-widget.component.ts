@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import {favouritesChange} from '../../../store/actions/case-object.actions';
@@ -11,18 +11,18 @@ import {selectFavourites} from '../../../store';
   styleUrls: ['./recent-widget.component.scss']
 })
 export class RecentWidgetComponent implements OnInit {
-
+  @Input()
+  recipeList: Recipe[];
   constructor(private readonly router: Router,
               public readonly bookStore: Store) { }
 
   ngOnInit(): void {
     this.bookStore.pipe(select(selectFavourites)).subscribe((caseObject) => {
-      alert('Favourite selected');
     });
   }
 
-  navigateToRecipe() {
-    this.router.navigate([`/recipe/1`]);
+  navigateToRecipe(recipe: Recipe) {
+    this.router.navigate([`/recipe/${recipe.id}`]);
   }
 
   addToFavourites() {
