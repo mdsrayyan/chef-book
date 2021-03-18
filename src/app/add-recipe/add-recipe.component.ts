@@ -16,11 +16,11 @@ export class AddRecipeComponent implements OnInit {
       title: ['', Validators.required],
       caption: [''],
       preparationTime: ['', Validators.required],
-      cookTime: [''],
+      cookTime: ['', Validators.required],
       servings: ['', Validators.required],
       description: [''],
       ingredients: ['', Validators.required],
-      instructions: [''],
+      instructions: ['', Validators.required],
       files: ['']
     });
   }
