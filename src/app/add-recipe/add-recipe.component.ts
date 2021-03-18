@@ -14,6 +14,7 @@ export class AddRecipeComponent implements OnInit {
   ngOnInit(): void {
     this.addRecipeForm = this.formBuilder.group({
       title: ['', Validators.required],
+      category: ['', Validators.required],
       caption: [''],
       preparationTime: ['', Validators.required],
       cookTime: ['', Validators.required],

@@ -14,6 +14,7 @@ import { RecentWidgetComponent } from './components/recent-widget/recent-widget.
 import {MatDividerModule} from '@angular/material/divider';
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule
   ],
   exports: [
     FooterComponent,
@@ -48,7 +50,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
