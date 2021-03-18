@@ -18,6 +18,7 @@ export class AddRecipeComponent implements OnInit {
       preparationTime: ['', Validators.required],
       cookTime: [''],
       servings: ['', Validators.required],
+      description: [''],
       ingredients: ['', Validators.required],
       instructions: [''],
       files: ['']

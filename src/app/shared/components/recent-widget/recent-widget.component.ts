@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'book-recent-widget',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecentWidgetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
+  navigateToRecipe() {
+    this.router.navigate([`/recipe/1`]);
+  }
 }
