@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import {RecipesService} from '../core/recipes.service';
+import {Recipe} from '../shared/models/book.model';
 
 @Component({
   selector: 'book-add-recipe',
@@ -9,20 +12,34 @@ import {FormBuilder, FormGroup, FormGroupDirective, Validators} from '@angular/f
 export class AddRecipeComponent implements OnInit {
   files: File[] = [];
   addRecipeForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private recipeService: RecipesService) { }
 
   ngOnInit(): void {
-    this.addRecipeForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      category: ['', Validators.required],
-      caption: [''],
-      preparationTime: ['', Validators.required],
-      cookTime: ['', Validators.required],
-      servings: ['', Validators.required],
-      description: [''],
-      ingredients: ['', Validators.required],
-      instructions: ['', Validators.required],
-      files: ['']
+    this.route.params.subscribe(params => {
+      if (params && params.id) {
+        this.recipeService.getRecipeById(params.id).subscribe((recipe) => {
+          this.addRecipeForm = this.createRecipeFormGroup(new Recipe(recipe));
+        });
+      } else {
+        this.addRecipeForm = this.createRecipeFormGroup(new Recipe({}));
+      }
+    });
+  }
+  createRecipeFormGroup(data: Recipe) {
+    data = data || {};
+    return this.formBuilder.group({
+      title: [data.title || '', Validators.required],
+      category: [data.category || '', Validators.required],
+      caption: [data.caption || ''],
+      preparationTime: [data.preparationTime || '', Validators.required],
+      cookTime: [data.cookTime || '', Validators.required],
+      servings: [data.servings || '', Validators.required],
+      description: [data.description || ''],
+      ingredients: [data.ingredients || '', Validators.required],
+      instructions: [data.instructions || '', Validators.required],
+      files: [data.files || '']
     });
   }
 

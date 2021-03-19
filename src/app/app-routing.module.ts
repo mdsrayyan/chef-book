@@ -15,6 +15,11 @@ const APP_ROUTES: Routes = [
     data: {title: 'Add Recipe'}
   },
   {
+    path: 'edit-recipe',
+    loadChildren: () => import('./add-recipe/add-recipe.module').then(m => m.AddRecipeModule),
+    data: {title: 'Edit Recipe'}
+  },
+  {
     path: 'about',
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
     data: {title: 'About Me'}

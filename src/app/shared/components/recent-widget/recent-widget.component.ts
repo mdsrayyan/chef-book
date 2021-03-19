@@ -25,7 +25,11 @@ export class RecentWidgetComponent implements OnInit {
     this.router.navigate([`/recipe/${recipe.id}`]);
   }
 
-  addToFavourites() {
+  editRecipe(recipe: Recipe) {
+    this.router.navigate([`/edit-recipe/${recipe.id}`]);
+  }
+
+  toggleFavourites() {
     this.bookStore.dispatch(favouritesChange([{title: 'asdsa', caption: 'sadsad'}]));
   }
 
