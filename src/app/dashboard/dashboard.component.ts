@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.recipeList$ = this.recipeService.getRecipeList();
     this.favouriteRecipeList$ = this.recipeService.getFavouriteRecipeList();
-    this.recentRecipeList$ = this.recipeService.getRecentRecipeList();
   }
 
 }

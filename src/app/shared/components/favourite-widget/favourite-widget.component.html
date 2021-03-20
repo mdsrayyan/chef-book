@@ -1,11 +1,11 @@
-<div fxLayout="column" fxLayoutGap="1rem" fxFlex="100">
+<div fxLayout="column" fxLayoutGap="1rem" fxFlex="100" *ngIf="recipeList && recipeList?.length > 0">
   <div fxLayout="row" fxLayoutAlign="space-between center">
     <span fxLayoutGap="0.5rem" fxLayoutAlign="center center">
       <mat-icon color="accent">favorite</mat-icon><span>Favourites</span>
     </span>
     <button mat-button> View All </button>
   </div>
-  <div fxLayout="row" fxLayoutGap="1rem" fxFlex="100">
+  <div fxLayout="row" fxLayoutGap="1rem" fxFlex="100" >
     <div fxLayout="column" *ngFor="let recipe of recipeList.slice(0, 4)" fxFlex="25">
       <div><img class="recipe-img" alt="Favourites" fxFlex="100" [src]="recipe.filePath"></div>
       <span>{{recipe?.title}}</span>

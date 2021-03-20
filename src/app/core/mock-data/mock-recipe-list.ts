@@ -14,7 +14,7 @@ export default [{
 },
   {
     id: 2,
-    title: 'LEMON CURD',
+    title: 'OATMEAL RAISIN COOKIES',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',
@@ -28,7 +28,7 @@ export default [{
   },
   {
     id: 3,
-    title: 'LEMON CURD',
+    title: 'BROWNIE RECIPE',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',
@@ -42,7 +42,7 @@ export default [{
   },
   {
     id: 4,
-    title: 'LEMON CURD',
+    title: 'IRISH SODA BREAD',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',
@@ -56,7 +56,7 @@ export default [{
   },
   {
     id: 5,
-    title: 'LEMON CURD',
+    title: 'ORANGE CHICKEN',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',
@@ -70,7 +70,7 @@ export default [{
   },
   {
     id: 6,
-    title: 'LEMON CURD',
+    title: 'CHOCOLATE CHIP BANANA BREAD',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',
@@ -84,7 +84,7 @@ export default [{
   },
   {
     id: 7,
-    title: 'LEMON CURD',
+    title: 'FRENCH TOAST',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',
@@ -154,7 +154,7 @@ export default [{
   },
   {
     id: 12,
-    title: 'LEMON CURD',
+    title: 'CREAM PUFFS',
     category: 'Smoothie',
     caption: 'How to make the easiest homemade Lemon Curd with just four simple ingredients. It\'s sweet, tart, smooth and creamy, and can be used in so many ways from filling cakes, tarts, scones and so much more!',
     preparationTime: '2',

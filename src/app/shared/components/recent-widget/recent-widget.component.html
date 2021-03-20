@@ -7,12 +7,12 @@
       <div fxLayoutAlign="space-between center">
         <span>{{recipe?.title}}</span>
         <div class="edit-delete--icons" fxLayoutGap="1rem">
-          <button mat-icon-button (click)="toggleFavourites()">
+          <button mat-icon-button (click)="toggleFavourites(recipe)">
             <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
             <mat-icon *ngIf="recipe?.isFavourite">favorite</mat-icon>
           </button>
           <button mat-icon-button (click)="editRecipe(recipe)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button (click)="deleteRecipe(recipe)"><mat-icon>delete</mat-icon></button>
         </div>
       </div>
       <p class="font-medium">{{recipe?.description}}</p>

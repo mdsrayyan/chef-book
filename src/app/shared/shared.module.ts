@@ -15,6 +15,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatDividerModule,
     MatTooltipModule,
-    MatSelectModule
+    MatAutocompleteModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   exports: [
     FooterComponent,
@@ -51,6 +55,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatDividerModule,
     MatTooltipModule,
+    MatAutocompleteModule,
     MatSelectModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

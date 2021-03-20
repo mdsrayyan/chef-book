@@ -1,31 +1,10 @@
-<div class="about--wrapper" fxLayoutGap="2rem" fxLayoutAlign="center start" fxLayout="row" fxFlex="100%">
+<div class="about--wrapper" fxLayoutGap="2rem" fxLayoutAlign="center start" fxLayout="row" fxFlex="100%" *ngIf="( aboutMe$ | async ) as aboutMe">
   <img alt="Profile Photo" class="profile-pic" src="../../assets/chef-profile-pic.JPG" fxFlex="30%">
   <mat-divider [vertical]="true" [style.height]="'100%'"></mat-divider>
   <div fxLayout="column">
-    <h1>Meet Rayyan</h1>
+    <h1>{{aboutMe?.title}}</h1>
     <p class="about--description">
-      Hi, I’m John and thanks for stopping by! After finishing my bachelor’s degree in fine arts at UCLA I spent just over
-      a decade teaching middle school math and science.
-      A few years ago I decided to follow my first passion in life which is culinary arts and Preppy Kitchen was born!
-      Baking and the process of content creation I do for Preppy Kitchen is the perfect mix of my creative background as
-      an artist,
-      experience teaching math and science (so much of both goes into baking), and the lifelong education I received in
-      the kitchen from my mother.
-    </p>
-    <p>If you’re asking why I chose the name “Preppy Kitchen”, it’s because aside from my own
-      personal affection for gingham, preppy connotes an adherence to gracious living and that’s my jam. For me the most
-      satisfying part of making any dish is sharing it with friends and family so I started blogging to bring what I make
-      to all of you in order to help you prepare dishes for the people in your life. If I was able to teach algebra to
-      middle school students, then trust me I can teach you how to cook! Through Preppy Kitchen I’ve been fortunate enough
-      to be a judge of Food Network’s Chopped: Sweets as well as work with multiple celebrities, be featured in
-      publications such as Parade Magazine for which I am an official contributor, Good Morning America, Better Homes &
-      Gardens, Elle Decor, Brides, Country Living, People Magazine, Woman’s Day, Delish, Taste of Home, and appear on a
-      number of talk shows like The Today Show, The Kelly Clarkson Show, Hallmark Home & Family, KTLA, Pickler & Ben,
-      California Cooking with Jessica Holmes, NJ on Air, and CT Live. As far as life outside the kitchen, my husband Brian
-      and I are enjoying life with our twins Lachlan & George and recently moved from our native Los Angeles to a farm in
-      rural Connecticut.
-
-      Head on over to my Contact page if you have any questions and drop me a line!
+      {{aboutMe?.description}}
     </p>
   </div>
 </div>

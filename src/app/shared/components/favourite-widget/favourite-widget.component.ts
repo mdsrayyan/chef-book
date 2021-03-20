@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Recipe} from '../../models/book.model';
+import {select, Store} from '@ngrx/store';
+import {selectFavourites} from '../../../store';
 
 @Component({
   selector: 'book-favourite-widget',
@@ -10,10 +12,13 @@ export class FavouriteWidgetComponent implements OnInit {
   @Input()
   recipeList: Recipe[];
 
-  constructor() {
+  constructor(public readonly bookStore: Store) {
   }
 
   ngOnInit(): void {
+    this.bookStore.pipe(select(selectFavourites)).subscribe((list) => {
+      this.recipeList = list;
+    });
   }
 
 }

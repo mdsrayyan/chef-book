@@ -4,6 +4,7 @@ import {select, Store} from '@ngrx/store';
 import {favouritesChange} from '../../../store/actions/case-object.actions';
 import {Recipe} from '../../models/book.model';
 import {selectFavourites} from '../../../store';
+import {RecipesService} from '../../../core/recipes.service';
 
 @Component({
   selector: 'book-recent-widget',
@@ -13,24 +14,34 @@ import {selectFavourites} from '../../../store';
 export class RecentWidgetComponent implements OnInit {
   @Input()
   recipeList: Recipe[];
-  constructor(private readonly router: Router,
-              public readonly bookStore: Store) { }
 
-  ngOnInit(): void {
-    this.bookStore.pipe(select(selectFavourites)).subscribe((caseObject) => {
-    });
+  constructor(private readonly router: Router,
+              public readonly bookStore: Store,
+              public readonly recipesService: RecipesService) {
   }
 
-  navigateToRecipe(recipe: Recipe) {
+  ngOnInit(): void {
+  }
+
+  navigateToRecipe(recipe: Recipe): void {
     this.router.navigate([`/recipe/${recipe.id}`]);
   }
 
-  editRecipe(recipe: Recipe) {
+  editRecipe(recipe: Recipe): void {
     this.router.navigate([`/edit-recipe/${recipe.id}`]);
   }
 
-  toggleFavourites() {
-    this.bookStore.dispatch(favouritesChange([{title: 'asdsa', caption: 'sadsad'}]));
+  toggleFavourites(recipe: Recipe): void {
+    recipe.isFavourite = !recipe.isFavourite;
+    this.recipesService.updateRecipe(recipe.id, recipe).then((res) => {
+      this.bookStore.dispatch(favouritesChange(this.recipeList.filter(recipeItem => recipeItem.isFavourite)));
+    });
+  }
+
+  deleteRecipe(recipe: Recipe) {
+    this.recipesService.deleteRecipe(recipe.id).then((res) => {
+      this.recipeList.splice(this.recipeList.findIndex(recipeItem => recipeItem.id === recipe.id), 1);
+    });
   }
 
 

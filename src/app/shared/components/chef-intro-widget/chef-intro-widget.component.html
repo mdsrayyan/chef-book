@@ -1,9 +1,9 @@
-<div class="chef-intro--wrapper" fxFlex="100%" fxLayout="column" fxLayoutGap="1rem">
-  <h2 fxLayoutAlign="center center"> WELCOME TO CHEF BOOK</h2>
+<div class="chef-intro--wrapper" fxFlex="100%" fxLayout="column" fxLayoutGap="1rem" *ngIf="( aboutMe$ | async ) as aboutMe">
+  <h2 fxLayoutAlign="center center"> {{aboutMe?.welcomeNote}}</h2>
   <img alt="Profile Photo" class="profile-pic" src="../../../../assets/chef-profile-pic.JPG">
   <div>
     <p class="intro-text">
-      Thanks for stopping by! I’m John Kanell, a husband, dad to twins Lachlan and George, Los Angeles native, and an avid baker and cooker of all things delicious thanks to a life long education from my mother. This blog is where I share all of my kitchen creations!
+      {{aboutMe?.shortInto}}
     </p>
     <button mat-raised-button color="accent" (click)="navigate()"> MORE ABOUT ME</button>
   </div>

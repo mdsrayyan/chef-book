@@ -2,7 +2,7 @@
   <book-favourite-widget [recipeList]="favouriteRecipeList$ | async"></book-favourite-widget>
   <mat-divider></mat-divider>
   <div class="recent-profile--wrapper" fxFlex="100%" fxLayout="row" fxLayoutGap="2rem">
-    <book-recent-widget fxFlex="70%" [recipeList]="recentRecipeList$ | async"></book-recent-widget>
+    <book-recent-widget fxFlex="70%" [recipeList]="recipeList$ | async"></book-recent-widget>
     <mat-divider [vertical]="true"></mat-divider>
     <book-chef-intro-widget fxFlex="30%"></book-chef-intro-widget>
   </div>
