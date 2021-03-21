@@ -16,6 +16,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     AngularFirestoreModule, // firestore
     AngularFireDatabaseModule,
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
   ],
   bootstrap: [AppComponent]
 })

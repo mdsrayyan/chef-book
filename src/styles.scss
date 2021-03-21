@@ -13,7 +13,6 @@ book-root {
 
 body {
   margin: 0;
-  background: whitesmoke;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 
   .font-medium {
@@ -28,11 +27,16 @@ img{
     height: 495px;
     width: 360px;
     object-fit: cover;
+    cursor: pointer;
+    transition: opacity 1s;
     &.large{
       height: 600px;
       width: 360px;
       object-fit: cover;
     }
+  }
+  &.recipe-img:hover{
+    opacity: 0.7;
   }
   &.profile-pic {
     width: 360px;
@@ -49,14 +53,18 @@ ngx-dropzone {
   min-height: 240px;
   flex-wrap: wrap !important;
 }
-.recipe-img:hover{
 
-  opacity: 0.7;
-}
 .recipe-img {
-  cursor: pointer;
-  transition: opacity 1s;
+
 }
 .line-breaks{
   white-space: pre-line;
+}
+
+.loader-theme{
+border-radius: 5px;
+height: 50px;
+background-color: #323232;
+border: 1px solid #323232;
+animation-duration: 2s;
 }

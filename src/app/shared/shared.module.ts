@@ -17,6 +17,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     FavouriteWidgetComponent,
     ChefIntroWidgetComponent,
     RecentWidgetComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatTooltipModule,
     MatAutocompleteModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule
   ],
   exports: [
     FooterComponent,
@@ -49,6 +53,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     ChefIntroWidgetComponent,
     RecentWidgetComponent,
     RecipeDetailComponent,
+    LoaderComponent,
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
