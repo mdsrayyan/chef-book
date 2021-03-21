@@ -19,9 +19,25 @@ body {
   .font-medium {
     font-size: 18px;
   }
+  .font-large {
+    font-size: 26px;
+  }
 }
 img{
-  height: auto;
+  &.recipe-img{
+    height: 495px;
+    width: 360px;
+    object-fit: cover;
+    &.large{
+      height: 600px;
+      width: 360px;
+      object-fit: cover;
+    }
+  }
+  &.profile-pic {
+    width: 360px;
+    height: 360px;
+  }
 }
 button {
   height: 36px;
@@ -40,4 +56,7 @@ ngx-dropzone {
 .recipe-img {
   cursor: pointer;
   transition: opacity 1s;
+}
+.line-breaks{
+  white-space: pre-line;
 }

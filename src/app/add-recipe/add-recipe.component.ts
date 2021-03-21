@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RecipesService} from '../core/recipes.service';
 import {Recipe} from '../shared/models/book.model';
 import firebase from 'firebase';
-import DocumentReference = firebase.firestore.DocumentReference;
 
 @Component({
   selector: 'book-add-recipe',
@@ -41,6 +40,8 @@ export class AddRecipeComponent implements OnInit {
       description: [data.description || ''],
       ingredients: [data.ingredients || '', Validators.required],
       instructions: [data.instructions || '', Validators.required],
+      addedDate: [data.addedDate || ''],
+      modifiedDate: [data.modifiedDate || ''],
       files: [data.files || '']
     });
   }
@@ -56,24 +57,10 @@ export class AddRecipeComponent implements OnInit {
   }
 
   onSubmit(formDirective: FormGroupDirective): void {
-    this.addRecipeForm.get('files').setValue(this.getBase64Value(this.files[0]));
-    this.recipeService.addRecipe(formDirective.form.value).then((doc: DocumentReference) => {
-      this.router.navigate([`recipe/${doc.id}`]);
-    });
-
+    const payload = formDirective.form.value as Recipe;
+    payload.addedDate = new Date().toDateString();
+    payload.modifiedDate = new Date().toDateString();
+    this.recipeService.addRecipe(payload, this.files[0]);
   }
-
-  getBase64Value(file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      console.log(reader.result);
-    };
-    reader.onerror = (error) => {
-      console.log('Error: ', error);
-    };
-  }
-
-
 
 }

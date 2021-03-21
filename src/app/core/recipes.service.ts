@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import recipeMockList from './mock-data/mock-recipe-list';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Recipe} from '../shared/models/book.model';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {map} from 'rxjs/operators';
+import {finalize, map} from 'rxjs/operators';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
-  private recipeList: Recipe[] = [];
-  constructor(private fireService: AngularFirestore) { }
+  constructor(private fireService: AngularFirestore,
+              private fireStorage: AngularFireStorage,
+              private readonly router: Router) { }
 
   getRecipeList(): Observable<Recipe[]> {
     const recipeList: Recipe[] = [];
@@ -59,22 +61,31 @@ export class RecipesService {
       });
   }
 
-  addRecipe(data): Promise<any> {
-    return this.fireService.collection('recipes').add(data)
-      .then((docRef) => {
-        return docRef;
+  addRecipe(data: Recipe, photo){
+    const filePath = `${photo.name}_${new Date().getTime()}`;
+    const fileRef = this.fireStorage.ref(filePath);
+    this.fireStorage.upload(filePath, photo).snapshotChanges().pipe(
+      finalize (() => {
+        fileRef.getDownloadURL().subscribe((url) => {
+          data.filePath = url;
+          return this.fireService.collection('recipes').add(data)
+            .then((docRef) => {
+              this.router.navigate([`recipe/${docRef.id}`]);
+            })
+            .catch(() => {
+              return null
+            });
+        })
       })
-      .catch((error) => {
-        return null
-      });
+    ).subscribe();
   }
 
   deleteRecipe(id) {
       return this.fireService.collection('recipes').doc(id).delete()
-        .then((docRef) => {
+        .then(() => {
           return true;
         })
-          .catch((error) => {
+          .catch(() => {
             return null
           });
   }

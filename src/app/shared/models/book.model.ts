@@ -12,6 +12,8 @@ export class Recipe {
   instructions?: string;
   isFavourite?: boolean;
   files?: string;
+  addedDate?: string;
+  modifiedDate?: string;
   filePath?: string;
 
   constructor(recipe: Recipe) {

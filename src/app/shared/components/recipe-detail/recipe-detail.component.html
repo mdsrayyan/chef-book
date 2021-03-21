@@ -25,24 +25,24 @@
       <mat-divider [vertical]="true"></mat-divider>
       <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="No of Servings">ramen_dining</mat-icon><span>{{recipe?.servings}}</span></div>
       <mat-divider [vertical]="true"></mat-divider>
-      <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Last Modified Date">calendar_today</mat-icon><span>February 20, 2020</span></div>
+      <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Added Date">calendar_today</mat-icon><span>{{recipe?.addedDate | date: 'mediumDate'}}</span></div>
     </div>
-    <p>{{recipe?.caption}}</p>
+    <p class="line-breaks">{{recipe?.caption}}</p>
   </div>
   <div>
-    <img alt="Profile Photo" class="profile-pic" fxFlex="100%"
+    <img alt="Profile Photo" class="recipe-img large" fxFlex="100%"
          [src]="recipe?.filePath">
   </div>
   <div>
     <h2>Description</h2>
-    <p class="font-medium">{{recipe?.description}}</p>
+    <p class="font-medium line-breaks">{{recipe?.description}}</p>
   </div>
   <div>
     <h2>Ingredients</h2>
-    <p class="font-medium">{{recipe?.ingredients}}</p>
+    <p class="font-medium line-breaks">{{recipe?.ingredients}}</p>
   </div>
   <div>
     <h2>Instructions</h2>
-    <p class="font-medium">{{recipe?.instructions}}</p>
+    <p class="font-medium line-breaks">{{recipe?.instructions}}</p>
   </div>
 </div>

@@ -44,7 +44,6 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     AngularFireAuthModule, // auth
     AngularFireStorageModule // storage
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

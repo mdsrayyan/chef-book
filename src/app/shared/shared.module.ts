@@ -1,5 +1,5 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -58,6 +58,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatAutocompleteModule,
     MatSelectModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [DatePipe]
 })
 export class SharedModule { }
