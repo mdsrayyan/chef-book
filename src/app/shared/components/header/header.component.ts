@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
   navigate(path) {
     this.router.navigate([`/${path}`]);
   }
+
+  navigateCategory(path) {
+    this.router.navigate([`/category/${path}`]);
+  }
 }

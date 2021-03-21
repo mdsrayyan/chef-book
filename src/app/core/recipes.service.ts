@@ -49,6 +49,20 @@ export class RecipesService {
       }));
   }
 
+  getRecipesByCategory(category: string): Observable<Recipe[]> {
+    const recipeList: Recipe[] = [];
+    return this.fireService.collection(`recipes`)
+      .get()
+      .pipe(map(actions => {
+        actions.docs.forEach((doc) => {
+          const payload: Recipe = doc.data() as Recipe;
+          payload.id = doc.id;
+          recipeList.push(payload as Recipe);
+        });
+        return recipeList.filter(recipe => recipe.category === category) as Recipe[];
+      }));
+  }
+
   updateRecipe(id: string, payload: Recipe) {
     return this.fireService.collection(`recipes`)
       .doc('/' + id)

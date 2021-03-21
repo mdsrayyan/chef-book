@@ -1,0 +1,13 @@
+<div fxLayout="column">
+  <h3>{{helperService.capitalize(category)}}</h3>
+  <div fxLayout="row grid" fxLayoutGap="1rem" fxFlex="100" >
+    <div fxLayout="column" *ngFor="let recipe of (recipeList$ | async)" fxFlex="25">
+      <div>
+        <img *ngIf="recipe?.filePath" class="recipe-img" alt="Favourites" fxFlex="100" [src]="recipe.filePath">
+        <img *ngIf="!recipe?.filePath" src="../../../../assets/no-image.png" alt="Favourites" fxFlex="100" class="recipe-img">
+      </div>
+      <span>{{recipe?.title}}</span>
+    </div>
+  </div>
+</div>
+

@@ -9,8 +9,8 @@
            [matAutocomplete]="auto">
     <mat-icon matSuffix class="global-search--cancel" (click)="clearControl()">cancel</mat-icon>
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="capitalize(option?.title)" (click)="navigate(option)">
-        {{capitalize(option?.title)}}
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="helperService.capitalize(option?.title)" (click)="navigate(option)">
+        {{helperService.capitalize(option?.title)}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

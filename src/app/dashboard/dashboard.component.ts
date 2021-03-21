@@ -11,7 +11,6 @@ import {Observable} from 'rxjs';
 export class DashboardComponent implements OnInit {
   recipeList$: Observable<Recipe[]>;
   favouriteRecipeList$: Observable<Recipe[]>;
-  recentRecipeList$: Observable<Recipe[]>;
   constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {

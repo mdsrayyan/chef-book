@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {map, startWith} from 'rxjs/operators';
 import {RecipesService} from '../../../core/recipes.service';
 import {Recipe} from '../../models/book.model';
+import {HelperService} from '../../../core/helper.service';
 
 @Component({
   selector: 'book-global-search',
@@ -18,7 +19,8 @@ export class GlobalSearchComponent implements OnInit {
   filteredOptions: Observable<Recipe[]>;
   recipeList$: Observable<Recipe[]>;
   constructor(private readonly recipeService: RecipesService,
-              private readonly router: Router) { }
+              private readonly router: Router,
+              public readonly helperService: HelperService) { }
 
   ngOnInit(): void {
     this.recipeService.getRecipeList().subscribe((recipeList) => {
@@ -38,10 +40,6 @@ export class GlobalSearchComponent implements OnInit {
 
   navigate(option: Recipe): void {
     this.router.navigate([`/recipe/${option?.id}`]);
-  }
-
-  capitalize(optionString: string): string {
-    return optionString.charAt(0).toUpperCase() + optionString.slice(1).toLowerCase();
   }
 
   clearControl(): void {
