@@ -1,11 +1,9 @@
 <div class="recent-widget--wrapper" fxLayout="column" fxLayoutGap="5rem">
-  <div *ngIf="recipeList?.length === 0">
-    <h3>No Recipes available, Please add one</h3>
-  </div>
+  <book-short-description-loader [count]="3" *ngIf="!recipeList || recipeList?.length === 0"></book-short-description-loader>
   <div fxLayout="row" class="recent-recipe-item" fxLayoutGap="1rem" *ngFor="let recipe of recipeList">
     <div fxFlex="0 0 40">
-      <img *ngIf="recipe?.filePath" [src]="recipe?.filePath" alt="Favourites" fxFlex="100" class="recipe-img">
-      <img *ngIf="!recipe?.filePath" src="../../../../assets/no-image.png" alt="Favourites" fxFlex="100" class="recipe-img">
+      <img *ngIf="recipe?.filePath" [src]="recipe?.filePath" alt="Favourites" fxFlex="100" class="recipe-img fadeInEffect">
+      <img *ngIf="!recipe?.filePath" src="../../../../assets/no-image.png" alt="Favourites" fxFlex="100" class="recipe-img fadeInEffect">
     </div>
     <div fxFlex="1 1 auto">
       <div fxLayoutAlign="space-between center">
@@ -19,7 +17,7 @@
           <button mat-icon-button (click)="deleteRecipe(recipe)"><mat-icon>delete</mat-icon></button>
         </div>
       </div>
-      <p class="font-medium">{{recipe?.caption}}</p>
+      <p class="font-medium fadeInEffect">{{recipe?.caption}}</p>
       <button color="accent" mat-raised-button fxLayoutAlign="center center" (click)="navigateToRecipe(recipe)"> Read On <mat-icon>arrow_right_alt</mat-icon></button>
     </div>
   </div>

@@ -1,0 +1,47 @@
+<div class="loader-wrapper" fxLayout="column" fxLayoutGap="5rem">
+  <div class="recent-recipe-item " fxLayout="row" fxLayoutGap="1rem" *ngFor="let countData of countArray">
+    <div fxFlex="0 0 40">
+      <ngx-skeleton-loader [theme]="{
+    'width.px': '320',
+    'height.px': '495',
+    'border-radius': '4px'
+  }" appearance="circle">
+      </ngx-skeleton-loader>
+    </div>
+    <div class="inner-content" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="2rem">
+      <ngx-skeleton-loader [theme]="{
+          width: '200px',
+          'border-radius': '0',
+          height: '30px',
+          'margin-bottom': '10px'
+        }"></ngx-skeleton-loader>
+
+      <div class="second-section-wrapper">
+        <div class="wrapper">
+          <ngx-skeleton-loader [theme]="{
+        width: '80%',
+        'border-radius': '0',
+        height: '15px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+        </div>
+        <div class="wrapper">
+          <ngx-skeleton-loader [theme]="{
+        width: '90%',
+        'border-radius': '0',
+        height: '15px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+        </div>
+        <div class="wrapper">
+          <ngx-skeleton-loader [theme]="{
+        width: '60%',
+        'border-radius': '0',
+        height: '15px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

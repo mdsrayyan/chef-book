@@ -17,8 +17,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
-import { LoaderComponent } from './components/loader/loader.component';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import { ImageGridLoaderComponent } from './components/loaders/image-grid-loader/image-grid-loader.component';
+import { ShortDescriptionLoaderComponent } from './components/loaders/short-description-loader/short-description-loader.component';
+import { LongDescriptionLoaderComponent } from './components/loaders/long-description-loader/long-description-loader.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
     ChefIntroWidgetComponent,
     RecentWidgetComponent,
     RecipeDetailComponent,
-    LoaderComponent
+    ImageGridLoaderComponent,
+    ShortDescriptionLoaderComponent,
+    LongDescriptionLoaderComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +57,9 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
     ChefIntroWidgetComponent,
     RecentWidgetComponent,
     RecipeDetailComponent,
-    LoaderComponent,
+    ImageGridLoaderComponent,
+    ShortDescriptionLoaderComponent,
+    LongDescriptionLoaderComponent,
     MatInputModule,
     MatMenuModule,
     MatButtonModule,

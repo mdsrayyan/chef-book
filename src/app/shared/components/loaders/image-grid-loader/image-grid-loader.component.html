@@ -1,0 +1,16 @@
+<div class="loader-wrapper"  [fxLayout]="layout === 'row' ? 'row' : 'row grid' " fxLayoutGap="1rem">
+  <div class="image-wrapper" *ngFor="let countData of countArray" fxLayout="column">
+    <ngx-skeleton-loader appearance="circle" [theme]="{
+    'width': '100%',
+    'height.px': '495',
+    'border-radius': '4px'
+  }">
+    </ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{
+          width: '200px',
+          'border-radius': '0',
+          height: '10px'
+        }"></ngx-skeleton-loader>
+  </div>
+</div>
+

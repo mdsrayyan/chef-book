@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoaderComponent } from './loader.component';
+import { ImageGridLoaderComponent } from './image-grid-loader.component';
 
-describe('LoaderComponent', () => {
-  let component: LoaderComponent;
-  let fixture: ComponentFixture<LoaderComponent>;
+describe('ImageGridLoaderComponent', () => {
+  let component: ImageGridLoaderComponent;
+  let fixture: ComponentFixture<ImageGridLoaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoaderComponent ]
+      declarations: [ ImageGridLoaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoaderComponent);
+    fixture = TestBed.createComponent(ImageGridLoaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

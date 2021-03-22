@@ -1,48 +1,54 @@
-<div fxFlex="100%" fxLayout="column" fxLayoutGap="2rem">
-  <div>
-    <div fxLayoutAlign="space-between center">
-      <h1>{{recipe?.title}}</h1>
+<div>
+  <div *ngIf="!recipe">
+    <book-long-description-loader></book-long-description-loader>
+  </div>
+  <div fxFlex="100%" fxLayout="column" fxLayoutGap="2rem" *ngIf="recipe">
+    <div>
+      <div fxLayoutAlign="space-between center">
+        <h1>{{recipe?.title}}</h1>
+
+        <div fxLayout="row" fxLayoutGap="1rem" >
+          <button mat-icon-button (click)="toggleFavourites()">
+            <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
+            <mat-icon *ngIf="recipe?.isFavourite">favorite</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Example icon-button with a menu" matTooltip="Edit your recipe" (click)="editRecipe(recipe)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Example icon-button with a menu" matTooltip="Delete the recipe" (click)="deleteRecipe(recipe)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
 
       <div fxLayout="row" fxLayoutGap="1rem" >
-        <button mat-icon-button (click)="toggleFavourites()">
-          <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
-          <mat-icon *ngIf="recipe?.isFavourite">favorite</mat-icon>
-        </button>
-        <button mat-icon-button aria-label="Example icon-button with a menu" matTooltip="Edit your recipe" (click)="editRecipe(recipe)">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button aria-label="Example icon-button with a menu" matTooltip="Delete the recipe" (click)="deleteRecipe(recipe)">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Total Time">access_time_filled</mat-icon><span>{{recipe?.preparationTime}}h</span></div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Cooking Time">local_fire_department</mat-icon><span>{{recipe?.cookTime}}h</span></div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="No of Servings">ramen_dining</mat-icon><span>{{recipe?.servings}}</span></div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Added Date">calendar_today</mat-icon><span>{{recipe?.addedDate | date: 'mediumDate'}}</span></div>
       </div>
+      <p class="line-breaks">{{recipe?.caption}}</p>
     </div>
-
-
-    <div fxLayout="row" fxLayoutGap="1rem" >
-      <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Total Time">access_time_filled</mat-icon><span>{{recipe?.preparationTime}}h</span></div>
-      <mat-divider [vertical]="true"></mat-divider>
-      <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Cooking Time">local_fire_department</mat-icon><span>{{recipe?.cookTime}}h</span></div>
-      <mat-divider [vertical]="true"></mat-divider>
-      <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="No of Servings">ramen_dining</mat-icon><span>{{recipe?.servings}}</span></div>
-      <mat-divider [vertical]="true"></mat-divider>
-      <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Added Date">calendar_today</mat-icon><span>{{recipe?.addedDate | date: 'mediumDate'}}</span></div>
+    <div>
+      <img alt="Profile Photo" class="recipe-img large fadeInEffect" fxFlex="100%"
+           [src]="recipe?.filePath">
     </div>
-    <p class="line-breaks">{{recipe?.caption}}</p>
-  </div>
-  <div>
-    <img alt="Profile Photo" class="recipe-img large" fxFlex="100%"
-         [src]="recipe?.filePath">
-  </div>
-  <div>
-    <h2>Description</h2>
-    <p class="font-medium line-breaks">{{recipe?.description}}</p>
-  </div>
-  <div>
-    <h2>Ingredients</h2>
-    <p class="font-medium line-breaks">{{recipe?.ingredients}}</p>
-  </div>
-  <div>
-    <h2>Instructions</h2>
-    <p class="font-medium line-breaks">{{recipe?.instructions}}</p>
+    <div>
+      <h2>Description</h2>
+      <p class="font-medium line-breaks fadeInEffect">{{recipe?.description}}</p>
+    </div>
+    <div>
+      <h2>Ingredients</h2>
+      <p class="font-medium line-breaks fadeInEffect">{{recipe?.ingredients}}</p>
+    </div>
+    <div>
+      <h2>Instructions</h2>
+      <p class="font-medium line-breaks fadeInEffect">{{recipe?.instructions}}</p>
+    </div>
   </div>
 </div>
+

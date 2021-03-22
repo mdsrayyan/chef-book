@@ -1,7 +1,7 @@
 <div class="book-wrapper">
   <book-header></book-header>
   <div class="content">
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="scrollTop($event)"></router-outlet>
   </div>
   <mat-divider></mat-divider>
   <book-footer></book-footer>
