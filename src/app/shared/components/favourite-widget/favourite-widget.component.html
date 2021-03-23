@@ -5,7 +5,7 @@
     <span fxLayoutAlign="center center" fxLayoutGap="0.5rem">
       <mat-icon color="accent">favorite</mat-icon><span>Favourites</span>
     </span>
-      <button (click)="navigateCategory('favourites')" *ngIf="recipeList.length > maxFavItems" mat-button> View All
+      <button (click)="navigateCategory('favourites')" *ngIf="recipeList.length > maxFavItems" mat-button [fxHide.lt-lg]="true"> View All
       </button>
       <button [fxHide.lg]="true" (click)="navigateCategory('favourites')" mat-button> View Favourites
       </button>
