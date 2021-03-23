@@ -6,7 +6,7 @@
     <span fxFlex="1 1 auto"></span>
     <div fxFlex="60%" fxLayout="row" fxLayoutGap="2rem" fxLayoutAlign="end center">
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem" [fxHide.lt-lg]="true">
-        <button (click)="navigate('add-recipe')" aria-label="Add Recipe" color="accent" mat-raised-button>
+        <button (click)="navigate('add-recipe')" aria-label="Add Recipe" mat-button>
           Add Recipe
         </button>
         <button (click)="navigate('about')" aria-label="Example icon-button with a menu" mat-button>
@@ -14,6 +14,7 @@
         </button>
         <button [matMenuTriggerFor]="recipesMenu" aria-label="Example icon-button with a menu" mat-button>
           My Recipes
+          <mat-icon>arrow_drop_down</mat-icon>
         </button>
       </div>
       <book-global-search fxFlex="1 1 100%" [fxHide.lt-md]="true"></book-global-search>
