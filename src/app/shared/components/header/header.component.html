@@ -4,8 +4,8 @@
       <img (click)="navigate('dashboard')" alt="FedEx SignUp" src="../../../../assets/chef-book-logo.png">
     </div>
     <span fxFlex="1 1 auto"></span>
-    <div fxFlex="60%" fxLayout="row" fxLayoutGap="2rem">
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem">
+    <div fxFlex="60%" fxLayout="row" fxLayoutGap="2rem" fxLayoutAlign="end center">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem" [fxHide.lt-lg]="true">
         <button (click)="navigate('add-recipe')" aria-label="Add Recipe" color="accent" mat-raised-button>
           Add Recipe
         </button>
@@ -16,13 +16,29 @@
           My Recipes
         </button>
       </div>
-      <book-global-search fxFlex="1 1 100%"></book-global-search>
+      <book-global-search fxFlex="1 1 100%" [fxHide.lt-md]="true"></book-global-search>
+      <div [fxHide.lg]="true">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="navigate('add-recipe')">
+            <span>Add Recipe</span>
+          </button>
+          <button mat-menu-item (click)="navigate('about')">
+            <span>About Me</span>
+          </button>
+          <button mat-menu-item [matMenuTriggerFor]="recipesMenu">
+            <span>My recipes</span>
+          </button>
+        </mat-menu>
+      </div>
     </div>
 
   </div>
 </div>
 
-<mat-menu #recipesMenu="matMenu">
+<mat-menu #recipesMenu="matMenu" xPosition="before">
   <button (click)="navigateCategory('baking')" mat-menu-item>Baking</button>
   <button (click)="navigateCategory('breakfast')" mat-menu-item>Breakfast</button>
   <button (click)="navigateCategory('dinner')" mat-menu-item>Dinner</button>

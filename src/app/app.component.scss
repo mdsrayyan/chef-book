@@ -8,4 +8,10 @@
     min-height: calc(100% - 12rem);
     margin: 2rem auto;
   }
+
+  @media only screen and (max-width: 600px) {
+    .content {
+      width: 90%;
+    }
+  }
 }

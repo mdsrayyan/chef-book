@@ -1,5 +1,5 @@
 <div fxLayout="column">
-  <book-image-grid-loader *ngIf="!recipeList " [count]="4" [layout]="'row'"></book-image-grid-loader>
+  <book-image-grid-loader *ngIf="!recipeList " [count]="4" [layout]="'row'" [fxHide.xs]="true" [fxHide.sm]="true" [fxHide.md]="true"></book-image-grid-loader>
   <div *ngIf="recipeList && recipeList?.length > 0" fxFlex="100" fxLayout="column" fxLayoutGap="1rem">
     <div fxLayout="row" fxLayoutAlign="space-between center">
     <span fxLayoutAlign="center center" fxLayoutGap="0.5rem">
@@ -7,8 +7,10 @@
     </span>
       <button (click)="navigateCategory('favourites')" *ngIf="recipeList.length > maxFavItems" mat-button> View All
       </button>
+      <button [fxHide.lg]="true" (click)="navigateCategory('favourites')" mat-button> View Favourites
+      </button>
     </div>
-    <div fxFlex="100" fxLayout="row" fxLayoutGap="1rem">
+    <div fxFlex="100" fxLayout="row" fxLayoutGap="1rem" fxLayout.lt-lg="row wrap" [fxHide.sm]="true" [fxHide.md]="true"  [fxHide.xs]="true">
       <div *ngFor="let recipe of recipeList.slice(0, maxFavItems)" fxFlex="25" fxLayout="column">
         <div>
           <img (click)="navigateToRecipe(recipe)" *ngIf="recipe?.filePath" [src]="recipe.filePath" alt="Favourites"

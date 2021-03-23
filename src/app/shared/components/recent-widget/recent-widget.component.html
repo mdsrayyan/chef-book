@@ -1,8 +1,8 @@
-<div class="recent-widget--wrapper" fxLayout="column" fxLayoutGap="5rem">
+<div class="recent-widget--wrapper" fxLayout="column" fxLayoutGap="5rem" fxFlex="100%">
   <book-short-description-loader *ngIf="!recipeList || recipeList?.length === 0"
-                                 [count]="3"></book-short-description-loader>
+                                 [count]="3" fxLayout.lt-lg="100%"></book-short-description-loader>
   <div *ngFor="let recipe of recipeList" class="recent-recipe-item" fxLayout="row" fxLayoutGap="1rem">
-    <div fxFlex="0 0 40">
+    <div fxFlex="0 0 40" [fxHide.xs]="true" [fxHide.sm]="true">
       <img (click)="navigateToRecipe(recipe)" *ngIf="recipe?.filePath" [src]="recipe?.filePath" alt="Favourites"
            class="recipe-img fadeInEffect" fxFlex="100">
       <img (click)="navigateToRecipe(recipe)" *ngIf="!recipe?.filePath" alt="Favourites" class="recipe-img fadeInEffect"
@@ -11,7 +11,7 @@
     <div fxFlex="1 1 auto">
       <div fxLayoutAlign="space-between center">
         <span (click)="navigateToRecipe(recipe)" class="font-large">{{recipe?.title}}</span>
-        <div class="edit-delete--icons" fxLayoutGap="1rem">
+        <div class="edit-delete--icons" fxLayoutGap="1rem" fxLayout="row">
           <button (click)="toggleFavourites(recipe)" mat-icon-button>
             <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
             <mat-icon *ngIf="recipe?.isFavourite">favorite</mat-icon>
