@@ -2,7 +2,7 @@
   <div class="recent-recipe-item " fxLayout="row" fxLayoutGap="1rem" *ngFor="let countData of countArray">
     <div fxFlex="0 0 40">
       <ngx-skeleton-loader [theme]="{
-    'width.px': '320',
+    'width': '100%',
     'height.px': '495',
     'border-radius': '4px'
   }" appearance="circle">
@@ -10,7 +10,7 @@
     </div>
     <div class="inner-content" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="2rem">
       <ngx-skeleton-loader [theme]="{
-          width: '200px',
+          width: '50%',
           'border-radius': '0',
           height: '30px',
           'margin-bottom': '10px'

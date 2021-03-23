@@ -37,8 +37,16 @@ export class AddRecipeComponent implements OnInit {
    */
   onSelect(event): void {
     this.files.push(...event.addedFiles);
+    if(this.files.length > 1){ // checking if files array has more than one content
+      this.replaceFile(); // replace file
+    }
   }
-
+  /**
+   * @summary replaces file if they are more than one
+   */
+  replaceFile(){
+    this.files.splice(0,1); // index =0 , remove_count = 1
+  }
   /**
    * @summary Click event fired when remove button clicked in drag-drop zone
    * @param event - This holds event from click event and files that has to be removed

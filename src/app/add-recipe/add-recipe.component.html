@@ -47,10 +47,10 @@
         <textarea formControlName="instructions" matInput rows="15"></textarea>
       </mat-form-field>
     </div>
-    <div class="form-group" fxFlex="50%">
-      <ngx-dropzone (change)="onSelect($event)">
+    <div class="form-group" fxFlex="1 1 50%">
+      <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
         <ngx-dropzone-label>Drop your recipe image here!</ngx-dropzone-label>
-        <ngx-dropzone-image-preview (removed)="onRemove(f)" *ngFor="let f of files" [file]="f"
+        <ngx-dropzone-image-preview class="image-preview" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f"
                                     [removable]="true" ngProjectAs="ngx-dropzone-preview">
           <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
         </ngx-dropzone-image-preview>
