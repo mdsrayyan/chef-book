@@ -2,40 +2,50 @@
   <div *ngIf="!recipe">
     <book-long-description-loader></book-long-description-loader>
   </div>
-  <div fxFlex="100%" fxLayout="column" fxLayoutGap="2rem" *ngIf="recipe">
+  <div *ngIf="recipe" fxFlex="100%" fxLayout="column" fxLayoutGap="2rem">
     <div>
       <div fxLayoutAlign="space-between center">
         <h1>{{recipe?.title}}</h1>
 
-        <div fxLayout="row" fxLayoutGap="1rem" >
-          <button mat-icon-button (click)="toggleFavourites()">
+        <div fxLayout="row" fxLayoutGap="1rem">
+          <button (click)="toggleFavourites()" mat-icon-button>
             <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
             <mat-icon *ngIf="recipe?.isFavourite">favorite</mat-icon>
           </button>
-          <button mat-icon-button aria-label="Example icon-button with a menu" matTooltip="Edit your recipe" (click)="editRecipe(recipe)">
+          <button (click)="editRecipe(recipe)" aria-label="Example icon-button with a menu" mat-icon-button
+                  matTooltip="Edit your recipe">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button aria-label="Example icon-button with a menu" matTooltip="Delete the recipe" (click)="openConfirmationDialog(recipe)">
+          <button (click)="openConfirmationDialog(recipe)" aria-label="Example icon-button with a menu" mat-icon-button
+                  matTooltip="Delete the recipe">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
       </div>
 
 
-      <div fxLayout="row" fxLayoutGap="1rem" >
-        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Total Time">access_time_filled</mat-icon><span>{{recipe?.preparationTime}}h</span></div>
+      <div fxLayout="row" fxLayoutGap="1rem">
+        <div fxLayoutAlign="center start" fxLayoutGap="0.5rem">
+          <mat-icon matTooltip="Total Time">access_time_filled</mat-icon>
+          <span>{{recipe?.preparationTime}}h</span></div>
         <mat-divider [vertical]="true"></mat-divider>
-        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Cooking Time">local_fire_department</mat-icon><span>{{recipe?.cookTime}}h</span></div>
+        <div fxLayoutAlign="center start" fxLayoutGap="0.5rem">
+          <mat-icon matTooltip="Cooking Time">local_fire_department</mat-icon>
+          <span>{{recipe?.cookTime}}h</span></div>
         <mat-divider [vertical]="true"></mat-divider>
-        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="No of Servings">ramen_dining</mat-icon><span>{{recipe?.servings}}</span></div>
+        <div fxLayoutAlign="center start" fxLayoutGap="0.5rem">
+          <mat-icon matTooltip="No of Servings">ramen_dining</mat-icon>
+          <span>{{recipe?.servings}}</span></div>
         <mat-divider [vertical]="true"></mat-divider>
-        <div fxLayoutGap="0.5rem" fxLayoutAlign="center start"><mat-icon matTooltip="Added Date">calendar_today</mat-icon><span>{{recipe?.addedDate | date: 'mediumDate'}}</span></div>
+        <div fxLayoutAlign="center start" fxLayoutGap="0.5rem">
+          <mat-icon matTooltip="Added Date">calendar_today</mat-icon>
+          <span>{{recipe?.addedDate | date: 'mediumDate'}}</span></div>
       </div>
       <p class="line-breaks">{{recipe?.caption}}</p>
     </div>
     <div>
-      <img alt="Profile Photo" class="recipe-img large fadeInEffect" fxFlex="100%"
-           [src]="recipe?.filePath">
+      <img [src]="recipe?.filePath" alt="Profile Photo" class="recipe-img large fadeInEffect"
+           fxFlex="100%">
     </div>
     <div>
       <h2>Description</h2>

@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {StoreModule} from '@ngrx/store';
@@ -26,11 +26,13 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     BrowserAnimationsModule,
     SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {metaReducers,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
       runtimeChecks: {
         strictStateImmutability: false,
         strictActionImmutability: false
-      }}),
+      }
+    }),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router'
     }),
@@ -46,5 +48,6 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 

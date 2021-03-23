@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GlobalSearchComponent } from './global-search.component';
+import {GlobalSearchComponent} from './global-search.component';
 
 describe('GlobalSearchComponent', () => {
   let component: GlobalSearchComponent;
@@ -8,9 +8,9 @@ describe('GlobalSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GlobalSearchComponent ]
+      declarations: [GlobalSearchComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

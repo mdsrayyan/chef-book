@@ -19,34 +19,41 @@ body {
   .font-medium {
     font-size: 18px;
   }
+
   .font-large {
     font-size: 26px;
   }
 }
-img{
-  &.recipe-img{
+
+img {
+  &.recipe-img {
     height: 495px;
     width: 360px;
     object-fit: cover;
     cursor: pointer;
     transition: opacity 1s;
-    &.large{
+
+    &.large {
       height: 600px;
       width: 360px;
       object-fit: cover;
     }
   }
-  &.recipe-img:hover{
+
+  &.recipe-img:hover {
     opacity: 0.7;
   }
+
   &.profile-pic {
     width: 360px;
     height: 360px;
   }
 }
+
 button {
   height: 36px;
 }
+
 ngx-dropzone {
   background: none !important;
   color: black !important;
@@ -55,12 +62,8 @@ ngx-dropzone {
   flex-wrap: wrap !important;
 }
 
-.line-breaks{
+.line-breaks {
   white-space: pre-line;
-}
-
-::ng-deep .loader.circle {
-  margin: 0;
 }
 
 .fadeInEffect {
@@ -72,30 +75,50 @@ ngx-dropzone {
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

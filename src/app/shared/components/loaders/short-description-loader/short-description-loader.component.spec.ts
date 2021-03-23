@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ShortDescriptionLoaderComponent } from './short-description-loader.component';
+import {ShortDescriptionLoaderComponent} from './short-description-loader.component';
 
 describe('ShortDescriptionLoaderComponent', () => {
   let component: ShortDescriptionLoaderComponent;
@@ -8,9 +8,9 @@ describe('ShortDescriptionLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShortDescriptionLoaderComponent ]
+      declarations: [ShortDescriptionLoaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

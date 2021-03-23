@@ -1,15 +1,15 @@
 <form class="global-search--form">
-  <mat-form-field  fxFlex="100" appearance="outline">
+  <mat-form-field appearance="outline" fxFlex="100">
     <mat-label>Search for recipe</mat-label>
-    <input type="text"
-           placeholder="Pick one"
+    <input [formControl]="myControl"
            aria-label="Number"
            matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-    <mat-icon matSuffix class="global-search--cancel" (click)="clearControl()">cancel</mat-icon>
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="helperService.capitalize(option?.title)" (click)="navigate(option)">
+           placeholder="Pick one"
+           type="text">
+    <mat-icon (click)="clearControl()" class="global-search--cancel" matSuffix>cancel</mat-icon>
+    <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+      <mat-option (click)="navigate(option)" *ngFor="let option of filteredOptions | async"
+                  [value]="helperService.capitalize(option?.title)">
         {{helperService.capitalize(option?.title)}}
       </mat-option>
     </mat-autocomplete>

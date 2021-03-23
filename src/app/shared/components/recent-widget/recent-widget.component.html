@@ -1,24 +1,33 @@
 <div class="recent-widget--wrapper" fxLayout="column" fxLayoutGap="5rem">
-  <book-short-description-loader [count]="3" *ngIf="!recipeList || recipeList?.length === 0"></book-short-description-loader>
-  <div fxLayout="row" class="recent-recipe-item" fxLayoutGap="1rem" *ngFor="let recipe of recipeList">
+  <book-short-description-loader *ngIf="!recipeList || recipeList?.length === 0"
+                                 [count]="3"></book-short-description-loader>
+  <div *ngFor="let recipe of recipeList" class="recent-recipe-item" fxLayout="row" fxLayoutGap="1rem">
     <div fxFlex="0 0 40">
-      <img *ngIf="recipe?.filePath" [src]="recipe?.filePath" alt="Favourites" fxFlex="100" class="recipe-img fadeInEffect" (click)="navigateToRecipe(recipe)">
-      <img *ngIf="!recipe?.filePath" src="../../../../assets/no-image.png" alt="Favourites" fxFlex="100" class="recipe-img fadeInEffect" (click)="navigateToRecipe(recipe)">
+      <img (click)="navigateToRecipe(recipe)" *ngIf="recipe?.filePath" [src]="recipe?.filePath" alt="Favourites"
+           class="recipe-img fadeInEffect" fxFlex="100">
+      <img (click)="navigateToRecipe(recipe)" *ngIf="!recipe?.filePath" alt="Favourites" class="recipe-img fadeInEffect"
+           fxFlex="100" src="../../../../assets/no-image.png">
     </div>
     <div fxFlex="1 1 auto">
       <div fxLayoutAlign="space-between center">
-        <span class="font-large" (click)="navigateToRecipe(recipe)">{{recipe?.title}}</span>
+        <span (click)="navigateToRecipe(recipe)" class="font-large">{{recipe?.title}}</span>
         <div class="edit-delete--icons" fxLayoutGap="1rem">
-          <button mat-icon-button (click)="toggleFavourites(recipe)">
+          <button (click)="toggleFavourites(recipe)" mat-icon-button>
             <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
             <mat-icon *ngIf="recipe?.isFavourite">favorite</mat-icon>
           </button>
-          <button mat-icon-button (click)="editRecipe(recipe)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button (click)="openConfirmationDialog(recipe)"><mat-icon>delete</mat-icon></button>
+          <button (click)="editRecipe(recipe)" mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="openConfirmationDialog(recipe)" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
         </div>
       </div>
       <p class="font-medium fadeInEffect">{{recipe?.caption}}</p>
-      <button color="accent" mat-raised-button fxLayoutAlign="center center" (click)="navigateToRecipe(recipe)"> Read On <mat-icon>arrow_right_alt</mat-icon></button>
+      <button (click)="navigateToRecipe(recipe)" color="accent" fxLayoutAlign="center center" mat-raised-button> Read On
+        <mat-icon>arrow_right_alt</mat-icon>
+      </button>
     </div>
   </div>
 </div>

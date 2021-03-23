@@ -48,7 +48,7 @@ export class RecentWidgetComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
+      if (result) {
         this.deleteRecipe(recipe);
       }
     });
@@ -57,7 +57,7 @@ export class RecentWidgetComponent implements OnInit {
 
   deleteRecipe(recipe: Recipe) {
     this.recipesService.deleteRecipe(recipe.id).then((res) => {
-      if(res) {
+      if (res) {
         this.recipeList.splice(this.recipeList.findIndex(recipeItem => recipeItem.id === recipe.id), 1);
         this.bookStore.dispatch(favouritesChange(this.recipeList.filter(recipeItem => recipeItem.isFavourite)));
       }

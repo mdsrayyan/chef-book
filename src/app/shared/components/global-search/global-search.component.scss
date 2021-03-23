@@ -1,8 +1,9 @@
-.global-search--form{
-  ::ng-deep .mat-form-field-wrapper{
+.global-search--form {
+  ::ng-deep .mat-form-field-wrapper {
     padding: 0 !important;
   }
-  .global-search--cancel{
+
+  .global-search--cancel {
     cursor: pointer;
   }
 }

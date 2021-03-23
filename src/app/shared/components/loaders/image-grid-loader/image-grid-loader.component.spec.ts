@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ImageGridLoaderComponent } from './image-grid-loader.component';
+import {ImageGridLoaderComponent} from './image-grid-loader.component';
 
 describe('ImageGridLoaderComponent', () => {
   let component: ImageGridLoaderComponent;
@@ -8,9 +8,9 @@ describe('ImageGridLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImageGridLoaderComponent ]
+      declarations: [ImageGridLoaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,6 +1,7 @@
-<div *ngIf="( aboutMe$ | async ) as aboutMe" class="about--wrapper" fxFlex="100%" fxLayout="row" fxLayoutAlign="center start"
+<div *ngIf="( aboutMe$ | async ) as aboutMe" class="about--wrapper" fxFlex="100%" fxLayout="row"
+     fxLayoutAlign="center start"
      fxLayoutGap="2rem">
-  <img alt="Profile Photo" class="profile-pic fadeInEffect" fxFlex="30%" [src]="aboutMe?.profilePath">
+  <img [src]="aboutMe?.profilePath" alt="Profile Photo" class="profile-pic fadeInEffect" fxFlex="30%">
   <mat-divider [style.height]="'100%'" [vertical]="true"></mat-divider>
   <div fxLayout="column">
     <h1>{{aboutMe?.title}}</h1>

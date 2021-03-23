@@ -1,4 +1,4 @@
-import {BookAppState, BookObjectState} from '../shared/models/store.model';
+import {BookAppState} from '../shared/models/store.model';
 import {ActionReducer, ActionReducerMap, createSelector, MetaReducer} from '@ngrx/store';
 import {getBookState, getFavouritesList} from './selectors/case-object.selectors';
 import {environment} from '../../environments/environment.prod';

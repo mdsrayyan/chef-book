@@ -13,6 +13,7 @@ export class CategoriesComponent implements OnInit {
   category: string;
   recipes: Recipe[];
   fetchingData: boolean;
+
   constructor(private route: ActivatedRoute,
               private recipeService: RecipesService,
               private readonly router: Router,
@@ -39,14 +40,14 @@ export class CategoriesComponent implements OnInit {
   }
 
   getAllFavourites() {
-    this.recipeService.getFavouriteRecipeList().subscribe((recipes: Recipe[])  => {
+    this.recipeService.getFavouriteRecipeList().subscribe((recipes: Recipe[]) => {
       this.fetchingData = false;
       this.recipes = recipes;
     });
   }
 
   getFavouritesByCategory(category: string) {
-    this.recipeService.getRecipesByCategory(category).subscribe((recipes: Recipe[])  => {
+    this.recipeService.getRecipesByCategory(category).subscribe((recipes: Recipe[]) => {
       this.fetchingData = false;
       this.recipes = recipes;
     });

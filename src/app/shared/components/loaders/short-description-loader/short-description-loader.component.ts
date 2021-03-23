@@ -9,6 +9,7 @@ export class ShortDescriptionLoaderComponent implements OnInit {
   @Input()
   count: number;
   countArray: number[];
+
   constructor() {
     this.count = 0;
     this.countArray = [];

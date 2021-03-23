@@ -5,9 +5,10 @@
                             [layout]="'grid'"></book-image-grid-loader>
     <div *ngFor="let recipe of recipes" fxFlex="25" fxLayout="column">
       <div>
-        <img *ngIf="recipe?.filePath" [src]="recipe.filePath" alt="Favourites" class="recipe-img" fxFlex="100" (click)="navigateToRecipe(recipe)">
-        <img *ngIf="!recipe?.filePath" alt="Favourites" class="recipe-img" fxFlex="100"
-             src="../../../../assets/no-image.png" (click)="navigateToRecipe(recipe)">
+        <img (click)="navigateToRecipe(recipe)" *ngIf="recipe?.filePath" [src]="recipe.filePath" alt="Favourites" class="recipe-img"
+             fxFlex="100">
+        <img (click)="navigateToRecipe(recipe)" *ngIf="!recipe?.filePath" alt="Favourites" class="recipe-img"
+             fxFlex="100" src="../../../../assets/no-image.png">
       </div>
       <span>{{recipe?.title}}</span>
     </div>

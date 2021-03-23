@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
@@ -17,6 +17,7 @@ export class GlobalSearchComponent implements OnInit {
   myControl = new FormControl();
   options!: Recipe[];
   filteredOptions!: Observable<Recipe[]>;
+
   constructor(private readonly recipeService: RecipesService,
               private readonly router: Router,
               public readonly helperService: HelperService) {
@@ -32,16 +33,16 @@ export class GlobalSearchComponent implements OnInit {
     );
   }
 
-  private _filter(value: string): Recipe[] {
-    const filterValue = value.toLowerCase();
-    return this.options && this.options.filter(option => option.title && option.title.toLowerCase().indexOf(filterValue) === 0);
-  }
-
   navigate(option: Recipe): void {
     this.router.navigate([`/recipe/${option?.id}`]);
   }
 
   clearControl(): void {
     this.myControl.setValue('');
+  }
+
+  private _filter(value: string): Recipe[] {
+    const filterValue = value.toLowerCase();
+    return this.options && this.options.filter(option => option.title && option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 }

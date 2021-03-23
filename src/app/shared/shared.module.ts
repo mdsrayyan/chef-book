@@ -8,20 +8,20 @@ import {GlobalSearchComponent} from './components/global-search/global-search.co
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import { FavouriteWidgetComponent } from './components/favourite-widget/favourite-widget.component';
-import { ChefIntroWidgetComponent } from './components/chef-intro-widget/chef-intro-widget.component';
-import { RecentWidgetComponent } from './components/recent-widget/recent-widget.component';
+import {FavouriteWidgetComponent} from './components/favourite-widget/favourite-widget.component';
+import {ChefIntroWidgetComponent} from './components/chef-intro-widget/chef-intro-widget.component';
+import {RecentWidgetComponent} from './components/recent-widget/recent-widget.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
+import {RecipeDetailComponent} from './components/recipe-detail/recipe-detail.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import { ImageGridLoaderComponent } from './components/loaders/image-grid-loader/image-grid-loader.component';
-import { ShortDescriptionLoaderComponent } from './components/loaders/short-description-loader/short-description-loader.component';
-import { LongDescriptionLoaderComponent } from './components/loaders/long-description-loader/long-description-loader.component';
-import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import {ImageGridLoaderComponent} from './components/loaders/image-grid-loader/image-grid-loader.component';
+import {ShortDescriptionLoaderComponent} from './components/loaders/short-description-loader/short-description-loader.component';
+import {LongDescriptionLoaderComponent} from './components/loaders/long-description-loader/long-description-loader.component';
+import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
@@ -77,4 +77,5 @@ import {MatDialogModule} from '@angular/material/dialog';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [DatePipe]
 })
-export class SharedModule { }
+export class SharedModule {
+}

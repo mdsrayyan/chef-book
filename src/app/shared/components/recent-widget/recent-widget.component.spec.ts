@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RecentWidgetComponent } from './recent-widget.component';
+import {RecentWidgetComponent} from './recent-widget.component';
 
 describe('RecentWidgetComponent', () => {
   let component: RecentWidgetComponent;
@@ -8,9 +8,9 @@ describe('RecentWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecentWidgetComponent ]
+      declarations: [RecentWidgetComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

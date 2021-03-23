@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'book-root',
@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'chef-book';
-  scrollTop(event) {
-    window.scroll(0,0);
+
+  scrollTop() {
+    window.scroll(0, 0);
   }
 }

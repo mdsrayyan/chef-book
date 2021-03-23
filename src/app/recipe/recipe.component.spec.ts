@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { RecipeComponent } from './recipe.component';
+import {RecipeComponent} from './recipe.component';
 import {ActivatedRoute} from '@angular/router';
 
 describe('RecipeComponent', () => {
   let component: RecipeComponent;
   let fixture: ComponentFixture<RecipeComponent>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipeComponent ],
+      declarations: [RecipeComponent],
       providers: [ActivatedRoute]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

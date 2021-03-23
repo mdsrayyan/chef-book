@@ -33,9 +33,10 @@ export class RecipeDetailComponent implements OnInit {
   editRecipe(recipe: Recipe): void {
     this.router.navigate([`/edit-recipe/${recipe.id}`]);
   }
+
   toggleFavourites(): void {
     this.recipe.isFavourite = !this.recipe.isFavourite;
-    this.recipesService.updateRecipe(this.recipe.id, this.recipe).then((res) => {
+    this.recipesService.updateRecipe(this.recipe.id, this.recipe).then(() => {
       this.bookStore.dispatch(favouritesChange(this.recipeList.filter(recipeItem => recipeItem.isFavourite)));
     });
   }
@@ -47,7 +48,7 @@ export class RecipeDetailComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
+      if (result) {
         this.deleteRecipe(recipe);
       }
     });
@@ -56,7 +57,7 @@ export class RecipeDetailComponent implements OnInit {
 
   deleteRecipe(recipe: Recipe) {
     this.recipesService.deleteRecipe(recipe.id).then((res) => {
-      if(res) {
+      if (res) {
         this.router.navigate([`/dashboard`]);
       }
     });

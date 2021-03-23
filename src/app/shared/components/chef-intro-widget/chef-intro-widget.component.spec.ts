@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ChefIntroWidgetComponent } from './chef-intro-widget.component';
+import {ChefIntroWidgetComponent} from './chef-intro-widget.component';
 
 describe('ChefIntroWidgetComponent', () => {
   let component: ChefIntroWidgetComponent;
@@ -8,9 +8,9 @@ describe('ChefIntroWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChefIntroWidgetComponent ]
+      declarations: [ChefIntroWidgetComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

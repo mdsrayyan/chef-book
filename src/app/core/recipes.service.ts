@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Recipe} from '../shared/models/book.model';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {finalize, map, switchMap} from 'rxjs/operators';
+import {finalize, map} from 'rxjs/operators';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Router} from '@angular/router';
 
@@ -12,7 +12,8 @@ import {Router} from '@angular/router';
 export class RecipesService {
   constructor(private fireService: AngularFirestore,
               private fireStorage: AngularFireStorage,
-              private readonly router: Router) { }
+              private readonly router: Router) {
+  }
 
   getRecipeList(): Observable<Recipe[]> {
     const recipeList: Recipe[] = [];
@@ -26,6 +27,7 @@ export class RecipesService {
         return recipeList as Recipe[];
       }));
   }
+
   getFavouriteRecipeList(): Observable<Recipe[]> {
     const recipeList: Recipe[] = [];
     return this.fireService.collection('recipes').get()
@@ -38,6 +40,7 @@ export class RecipesService {
         return recipeList.filter(recipe => recipe.isFavourite) as Recipe[];
       }));
   }
+
   getRecipeById(recipeId: string): Observable<Recipe> {
     return this.fireService.collection(`recipes`)
       .doc('/' + recipeId)
@@ -75,12 +78,12 @@ export class RecipesService {
       });
   }
 
-  addRecipe(data: Recipe, photo: File){
-    if(photo) {
+  addRecipe(data: Recipe, photo: File) {
+    if (photo) {
       const filePath = `${photo.name}_${new Date().getTime()}`;
       const fileRef = this.fireStorage.ref(filePath);
       this.fireStorage.upload(filePath, photo).snapshotChanges().pipe(
-        finalize (() => {
+        finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             data.filePath = url;
             return this.fireService.collection('recipes').add(data)
@@ -105,13 +108,13 @@ export class RecipesService {
   }
 
   deleteRecipe(id: string) {
-      return this.fireService.collection('recipes').doc(id).delete()
-        .then(() => {
-          return true;
-        })
-          .catch(() => {
-            return null
-          });
+    return this.fireService.collection('recipes').doc(id).delete()
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return null
+      });
   }
 
 }

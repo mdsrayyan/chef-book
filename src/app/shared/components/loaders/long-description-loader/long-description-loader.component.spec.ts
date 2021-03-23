@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LongDescriptionLoaderComponent } from './long-description-loader.component';
+import {LongDescriptionLoaderComponent} from './long-description-loader.component';
 
 describe('LongDescriptionLoaderComponent', () => {
   let component: LongDescriptionLoaderComponent;
@@ -8,9 +8,9 @@ describe('LongDescriptionLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LongDescriptionLoaderComponent ]
+      declarations: [LongDescriptionLoaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

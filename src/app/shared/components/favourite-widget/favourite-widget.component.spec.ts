@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FavouriteWidgetComponent } from './favourite-widget.component';
+import {FavouriteWidgetComponent} from './favourite-widget.component';
 
 describe('FavouriteWidgetComponent', () => {
   let component: FavouriteWidgetComponent;
@@ -8,9 +8,9 @@ describe('FavouriteWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavouriteWidgetComponent ]
+      declarations: [FavouriteWidgetComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

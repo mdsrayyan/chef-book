@@ -1,18 +1,18 @@
 <div class="header-wrapper">
   <div class="header" fxLayout="row" fxLayoutAlign="center center">
     <div class="logo">
-      <img alt="FedEx SignUp" src="../../../../assets/chef-book-logo.png" (click)="navigate('dashboard')">
+      <img (click)="navigate('dashboard')" alt="FedEx SignUp" src="../../../../assets/chef-book-logo.png">
     </div>
     <span fxFlex="1 1 auto"></span>
-    <div fxLayout="row" fxLayoutGap="2rem" fxFlex="60%">
-      <div fxLayout="row" fxLayoutGap="1rem" fxLayoutAlign="center center">
-        <button mat-raised-button aria-label="Add Recipe" color="accent" (click)="navigate('add-recipe')">
+    <div fxFlex="60%" fxLayout="row" fxLayoutGap="2rem">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem">
+        <button (click)="navigate('add-recipe')" aria-label="Add Recipe" color="accent" mat-raised-button>
           Add Recipe
         </button>
-        <button mat-button aria-label="Example icon-button with a menu" (click)="navigate('about')">
+        <button (click)="navigate('about')" aria-label="Example icon-button with a menu" mat-button>
           About Me
         </button>
-        <button mat-button [matMenuTriggerFor]="recipesMenu" aria-label="Example icon-button with a menu">
+        <button [matMenuTriggerFor]="recipesMenu" aria-label="Example icon-button with a menu" mat-button>
           My Recipes
         </button>
       </div>
@@ -23,11 +23,11 @@
 </div>
 
 <mat-menu #recipesMenu="matMenu">
-  <button mat-menu-item (click)="navigateCategory('baking')">Baking</button>
-  <button mat-menu-item (click)="navigateCategory('breakfast')">Breakfast</button>
-  <button mat-menu-item (click)="navigateCategory('dinner')">Dinner</button>
-  <button mat-menu-item (click)="navigateCategory('smoothie')">Smoothie</button>
-  <button mat-menu-item (click)="navigateCategory('curry')">Curry</button>
-  <button mat-menu-item (click)="navigateCategory('chinese')">Chinese</button>
-  <button mat-menu-item (click)="navigateCategory('cookies')">Cookies</button>
+  <button (click)="navigateCategory('baking')" mat-menu-item>Baking</button>
+  <button (click)="navigateCategory('breakfast')" mat-menu-item>Breakfast</button>
+  <button (click)="navigateCategory('dinner')" mat-menu-item>Dinner</button>
+  <button (click)="navigateCategory('smoothie')" mat-menu-item>Smoothie</button>
+  <button (click)="navigateCategory('curry')" mat-menu-item>Curry</button>
+  <button (click)="navigateCategory('chinese')" mat-menu-item>Chinese</button>
+  <button (click)="navigateCategory('cookies')" mat-menu-item>Cookies</button>
 </mat-menu>

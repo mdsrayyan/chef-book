@@ -1,11 +1,12 @@
-<div class="chef-intro--wrapper" fxFlex="100%" fxLayout="column" fxLayoutGap="1rem" *ngIf="( aboutMe$ | async ) as aboutMe">
+<div *ngIf="( aboutMe$ | async ) as aboutMe" class="chef-intro--wrapper" fxFlex="100%" fxLayout="column"
+     fxLayoutGap="1rem">
   <h2 fxLayoutAlign="center center"> {{aboutMe?.welcomeNote}}</h2>
-  <img alt="Profile Photo" class="profile-pic fadeInEffect" [src]="aboutMe?.profilePath">
+  <img [src]="aboutMe?.profilePath" alt="Profile Photo" class="profile-pic fadeInEffect">
   <div>
     <p class="intro-text fadeInEffect">
       {{aboutMe?.shortInto}}
     </p>
-    <button mat-raised-button color="accent" (click)="navigate()"> MORE ABOUT ME</button>
+    <button (click)="navigate()" color="accent" mat-raised-button> MORE ABOUT ME</button>
   </div>
 
 </div>

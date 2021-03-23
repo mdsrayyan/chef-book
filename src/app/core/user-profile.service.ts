@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {About, Recipe} from '../shared/models/book.model';
-import aboutMe from './mock-data/mock-about-me';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {AngularFirestore} from '@angular/fire/firestore';
 
@@ -9,7 +8,8 @@ import {AngularFirestore} from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class UserProfileService {
-  constructor(private fireService: AngularFirestore,) { }
+  constructor(private fireService: AngularFirestore,) {
+  }
 
   getAboutMe(): Observable<About> {
     return this.fireService.collection('profile')

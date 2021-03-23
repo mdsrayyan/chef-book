@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Recipe} from '../shared/models/book.model';
 import {FormBuilder, Validators} from '@angular/forms';
 
@@ -7,7 +7,8 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class HelperService {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   capitalize(optionString: string): string {
     return optionString.charAt(0).toUpperCase() + optionString.slice(1).toLowerCase();
