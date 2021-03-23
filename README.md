@@ -24,10 +24,11 @@ This app consists of following features.
 
 User can:
 1. Add, Delete and Edit recipes to the book.
-2. Can bookmark recipes for future reference.
+2. Can favourite recipes for future reference.
 3. Can filter on the different categories of recipes available
 4. Can search for specific recipe.
 5. Can upload the images for the recipe
+6. Can view all favourite if more are added
 
 # Installation
 

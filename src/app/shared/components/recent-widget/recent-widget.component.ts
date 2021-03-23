@@ -4,6 +4,8 @@ import {Store} from '@ngrx/store';
 import {favouritesChange} from '../../../store/actions/case-object.actions';
 import {Recipe} from '../../models/book.model';
 import {RecipesService} from '../../../core/recipes.service';
+import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'book-recent-widget',
@@ -16,6 +18,7 @@ export class RecentWidgetComponent implements OnInit {
 
   constructor(private readonly router: Router,
               public readonly bookStore: Store,
+              public dialog: MatDialog,
               public readonly recipesService: RecipesService) {
     this.recipeList = [];
   }
@@ -38,9 +41,26 @@ export class RecentWidgetComponent implements OnInit {
     });
   }
 
+  openConfirmationDialog(recipe: Recipe): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: {title: 'Confirmation', message: 'Are you sure to delete recipe ?'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.deleteRecipe(recipe);
+      }
+    });
+  }
+
+
   deleteRecipe(recipe: Recipe) {
-    this.recipesService.deleteRecipe(recipe.id).then(() => {
-      this.recipeList.splice(this.recipeList.findIndex(recipeItem => recipeItem.id === recipe.id), 1);
+    this.recipesService.deleteRecipe(recipe.id).then((res) => {
+      if(res) {
+        this.recipeList.splice(this.recipeList.findIndex(recipeItem => recipeItem.id === recipe.id), 1);
+        this.bookStore.dispatch(favouritesChange(this.recipeList.filter(recipeItem => recipeItem.isFavourite)));
+      }
     });
   }
 

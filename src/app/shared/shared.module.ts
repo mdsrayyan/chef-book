@@ -21,6 +21,8 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import { ImageGridLoaderComponent } from './components/loaders/image-grid-loader/image-grid-loader.component';
 import { ShortDescriptionLoaderComponent } from './components/loaders/short-description-loader/short-description-loader.component';
 import { LongDescriptionLoaderComponent } from './components/loaders/long-description-loader/long-description-loader.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { LongDescriptionLoaderComponent } from './components/loaders/long-descri
     RecipeDetailComponent,
     ImageGridLoaderComponent,
     ShortDescriptionLoaderComponent,
-    LongDescriptionLoaderComponent
+    LongDescriptionLoaderComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +49,7 @@ import { LongDescriptionLoaderComponent } from './components/loaders/long-descri
     MatTooltipModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatDialogModule,
     ReactiveFormsModule,
     NgxSkeletonLoaderModule
   ],
@@ -67,7 +71,8 @@ import { LongDescriptionLoaderComponent } from './components/loaders/long-descri
     MatDividerModule,
     MatTooltipModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [DatePipe]
