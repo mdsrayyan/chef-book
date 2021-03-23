@@ -3,11 +3,11 @@
   <div fxFlex="100%" fxLayout="row" fxLayoutGap="2rem">
     <div fxFlex="50%" fxLayout="column">
       <mat-form-field appearance="outline">
-        <mat-label>Title</mat-label>
-        <input formControlName="title" matInput>
+        <mat-label>Title*</mat-label>
+        <input formControlName="title" matInput placeholder="Enter a title for your recipe">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Category</mat-label>
+        <mat-label>Category*</mat-label>
         <mat-select formControlName="category">
           <mat-option value="baking">Baking</mat-option>
           <mat-option value="breakfast">Breakfast</mat-option>
@@ -20,31 +20,31 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Caption</mat-label>
-        <textarea formControlName="caption" matInput rows="3"></textarea>
+        <textarea formControlName="caption" matInput rows="3" placeholder="Few Lines that might catch attention"></textarea>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Preparation Time</mat-label>
-        <input formControlName="preparationTime" matInput>
+        <mat-label>Preparation Time*</mat-label>
+        <input formControlName="preparationTime" matInput placeholder="Enter total time for preparation (ex: 2h 30m)">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Cook Time</mat-label>
-        <input formControlName="cookTime" matInput>
+        <mat-label>Cook Time*</mat-label>
+        <input formControlName="cookTime" matInput placeholder="Enter time for cooking (ex: 1h)">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Servings</mat-label>
-        <input formControlName="servings" matInput>
+        <mat-label>Servings*</mat-label>
+        <input formControlName="servings" matInput type="number" placeholder="Enter no of servings (ex: 5)">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
-        <textarea formControlName="description" matInput rows="7"></textarea>
+        <textarea formControlName="description" matInput rows="7" placeholder="Description for your recipe"></textarea>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Ingredients</mat-label>
-        <textarea formControlName="ingredients" matInput rows="7"></textarea>
+        <mat-label>Ingredients*</mat-label>
+        <textarea formControlName="ingredients" matInput rows="7" placeholder="List out all the ingredients needed"></textarea>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Instructions</mat-label>
-        <textarea formControlName="instructions" matInput rows="15"></textarea>
+        <mat-label>Instructions*</mat-label>
+        <textarea formControlName="instructions" matInput rows="15" placeholder="Instruction on how to do"></textarea>
       </mat-form-field>
     </div>
     <div class="form-group" fxFlex="1 1 50%">
@@ -58,7 +58,7 @@
     </div>
   </div>
   <div fxLayoutAlign="end end">
-    <button class="register-button" color="accent"
+    <button class="register-button" color="accent" [disabled]="addRecipeForm?.invalid"
             mat-raised-button type="submit">
       Add My Recipe
     </button>

@@ -1,5 +1,5 @@
 <div class="loader-wrapper" fxLayout="column" fxLayoutGap="5rem">
-  <div class="recent-recipe-item " fxLayout="row" fxLayoutGap="1rem" *ngFor="let countData of countArray">
+  <div *ngFor="let countData of countArray" class="recent-recipe-item " fxLayout="row" fxLayoutGap="1rem">
     <div fxFlex="0 0 40">
       <ngx-skeleton-loader [theme]="{
     'width': '100%',
