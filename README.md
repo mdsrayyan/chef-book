@@ -2,12 +2,12 @@
 
 - [Chef Book](#chef-book)
 - [Introduction](#introduction)
+- [Live Preview](#live-preview)
 - [Installation](#installation)
   - [Local installation](#local-installation)
 - [API](#api)
 - [Project Structure](#project-structure)
 - [Deployment](#deployment)
-- [Documentation](#documentation)
 - [Useful Commands](#useful-commands)
 - [Environment](#environment)
   - [Development server](#development-server)
@@ -29,6 +29,10 @@ User can:
 4. Can search for specific recipe.
 5. Can upload the images for the recipe
 6. Can view all favourite if more are added
+
+# Live Preview
+You can view the application [here](https://chef-book-demo.netlify.app)
+
 
 # Installation
 
@@ -55,7 +59,7 @@ This project makes use of
 - Equipped with code snippets to help developers to ease the process of documentation
 - Project uses material for UX (opiniated)
 - Uses NgRx store to communicate between components easily.
-- Uses Flex to make sure the application in responsive enough
+- Uses Flex to make sure the application is fully responsive
 
 # Deployment
 
@@ -64,9 +68,6 @@ After the successful check, code will be pushed to the corresponding branch in g
 
 check live app after deployment [here](https://chef-book-demo.netlify.app)
 
-# Documentation
-
-Latest Documents will be available [here](https://fedex-signup-docs.netlify.app/)
 
 # Useful Commands
 
