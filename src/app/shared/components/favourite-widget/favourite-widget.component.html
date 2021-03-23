@@ -5,13 +5,13 @@
     <span fxLayoutGap="0.5rem" fxLayoutAlign="center center">
       <mat-icon color="accent">favorite</mat-icon><span>Favourites</span>
     </span>
-      <button mat-button (click)="navigateCategory('baking')" *ngIf="recipeList.length > maxFavItems"> View All </button>
+      <button mat-button (click)="navigateCategory('favourites')" *ngIf="recipeList.length > maxFavItems"> View All </button>
     </div>
     <div fxLayout="row" fxLayoutGap="1rem" fxFlex="100" >
       <div fxLayout="column" *ngFor="let recipe of recipeList.slice(0, maxFavItems)" fxFlex="25">
         <div>
-          <img *ngIf="recipe?.filePath" class="recipe-img fadeInEffect" alt="Favourites" fxFlex="100" [src]="recipe.filePath">
-          <img *ngIf="!recipe?.filePath" src="../../../../assets/no-image.png" alt="Favourites" fxFlex="100" class="recipe-img fadeInEffect">
+          <img *ngIf="recipe?.filePath" class="recipe-img fadeInEffect" alt="Favourites" fxFlex="100" [src]="recipe.filePath" (click)="navigateToRecipe(recipe)">
+          <img *ngIf="!recipe?.filePath" src="../../../../assets/no-image.png" alt="Favourites" fxFlex="100" class="recipe-img fadeInEffect" (click)="navigateToRecipe(recipe)">
         </div>
         <span>{{recipe?.title}}</span>
       </div>

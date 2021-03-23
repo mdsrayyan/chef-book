@@ -1,16 +1,18 @@
 <div fxLayout="column">
   <h3>{{helperService?.capitalize(category)}}</h3>
   <div fxFlex="100" fxLayout="row grid" fxLayoutGap="1rem">
-    <book-image-grid-loader *ngIf="(recipeList$ | async) === null || (recipeList$ | async) === undefined" [count]="8"
+    <book-image-grid-loader *ngIf="fetchingData" [count]="8"
                             [layout]="'grid'"></book-image-grid-loader>
-    <div *ngFor="let recipe of (recipeList$ | async)" fxFlex="25" fxLayout="column">
+    <div *ngFor="let recipe of recipes" fxFlex="25" fxLayout="column">
       <div>
-        <img *ngIf="recipe?.filePath" [src]="recipe.filePath" alt="Favourites" class="recipe-img" fxFlex="100">
+        <img *ngIf="recipe?.filePath" [src]="recipe.filePath" alt="Favourites" class="recipe-img" fxFlex="100" (click)="navigateToRecipe(recipe)">
         <img *ngIf="!recipe?.filePath" alt="Favourites" class="recipe-img" fxFlex="100"
-             src="../../../../assets/no-image.png">
+             src="../../../../assets/no-image.png" (click)="navigateToRecipe(recipe)">
       </div>
       <span>{{recipe?.title}}</span>
     </div>
+    <img *ngIf="!fetchingData && recipes.length === 0" alt="Favourites" class="recipe-img" fxFlex="100"
+         src="../../../../assets/no-result.jpeg">
   </div>
 </div>
 

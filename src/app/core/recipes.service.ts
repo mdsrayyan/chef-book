@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Recipe} from '../shared/models/book.model';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {finalize, map} from 'rxjs/operators';
+import {finalize, map, switchMap} from 'rxjs/operators';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Router} from '@angular/router';
 

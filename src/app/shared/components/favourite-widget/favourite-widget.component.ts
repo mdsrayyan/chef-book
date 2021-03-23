@@ -28,4 +28,8 @@ export class FavouriteWidgetComponent implements OnInit {
     this.router.navigate([`/category/${path}`]);
   }
 
+  navigateToRecipe(recipe: Recipe): void {
+    this.router.navigate([`/recipe/${recipe.id}`]);
+  }
+
 }

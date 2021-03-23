@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {RecipesService} from '../core/recipes.service';
-import {Observable} from 'rxjs';
 import {Recipe} from '../shared/models/book.model';
 import {HelperService} from '../core/helper.service';
 
@@ -12,18 +11,44 @@ import {HelperService} from '../core/helper.service';
 })
 export class CategoriesComponent implements OnInit {
   category: string;
-  recipeList$!: Observable<Recipe[]>;
-
+  recipes: Recipe[];
+  fetchingData: boolean;
   constructor(private route: ActivatedRoute,
               private recipeService: RecipesService,
+              private readonly router: Router,
               public readonly helperService: HelperService) {
     this.category = '';
+    this.recipes = [];
+    this.fetchingData = false;
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.category = params.id;
-      this.recipeList$ = this.recipeService.getRecipesByCategory(params.id);
+      this.fetchingData = true;
+      if (params.id === 'favourites') {
+        this.getAllFavourites();
+      } else {
+        this.getFavouritesByCategory(params.id);
+      }
+    });
+  }
+
+  navigateToRecipe(recipe: Recipe): void {
+    this.router.navigate([`/recipe/${recipe.id}`]);
+  }
+
+  getAllFavourites() {
+    this.recipeService.getFavouriteRecipeList().subscribe((recipes: Recipe[])  => {
+      this.fetchingData = false;
+      this.recipes = recipes;
+    });
+  }
+
+  getFavouritesByCategory(category: string) {
+    this.recipeService.getRecipesByCategory(category).subscribe((recipes: Recipe[])  => {
+      this.fetchingData = false;
+      this.recipes = recipes;
     });
   }
 
