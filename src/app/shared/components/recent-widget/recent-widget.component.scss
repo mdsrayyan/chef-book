@@ -1,9 +1,6 @@
 .recent-widget--wrapper {
   padding-top: 1rem;
-  /*.recent-recipe-item:hover  .edit-delete--icons{
-    visibility: visible;
-  }*/
-  /*.edit-delete--icons{
-    visibility: hidden;
-  }*/
+  .recipe-title {
+    cursor: pointer;
+  }
 }

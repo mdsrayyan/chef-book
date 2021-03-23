@@ -105,7 +105,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 1. Unit test case coverage could have been done, But due to time constrain it wasn't. You can always look for other projects in my repo for reference. 
 2. Rich text support for user to make editing a little easier.
 3. Form control name is used instead of form control to avoid strict type issues.
-4. Could have used NgRx store more to store previous searches and store latest visited recipes.
-5. Could have written e2e test cases
-6. Multiple image upload option and proper loaders
+4. More usage of NgRx store could have been done.
+5. Could have written e2e test cases.
+6. Multiple image upload option and proper loaders.
 

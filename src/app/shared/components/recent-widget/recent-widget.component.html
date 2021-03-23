@@ -10,7 +10,7 @@
     </div>
     <div fxFlex="1 1 auto">
       <div fxLayoutAlign="space-between center">
-        <span (click)="navigateToRecipe(recipe)" class="font-large">{{recipe?.title}}</span>
+        <span (click)="navigateToRecipe(recipe)" class="font-large recipe-title">{{recipe?.title}}</span>
         <div class="edit-delete--icons" fxLayoutGap="1rem" fxLayout="row">
           <button (click)="toggleFavourites(recipe)" mat-icon-button>
             <mat-icon *ngIf="!recipe?.isFavourite">favorite_border</mat-icon>
