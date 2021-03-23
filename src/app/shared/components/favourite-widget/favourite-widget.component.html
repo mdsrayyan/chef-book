@@ -1,6 +1,6 @@
 <div fxLayout="column">
-  <book-image-grid-loader [count]="4" [layout]="'row'" *ngIf="recipeList && (!recipeList?.length || recipeList?.length === 0)"></book-image-grid-loader>
-  <div fxLayout="column" fxLayoutGap="1rem" fxFlex="100" *ngIf="recipeList && (recipeList?.length > 0)">
+  <book-image-grid-loader [count]="4" [layout]="'row'" *ngIf="!recipeList "></book-image-grid-loader>
+  <div fxLayout="column" fxLayoutGap="1rem" fxFlex="100" *ngIf="recipeList && recipeList?.length > 0">
     <div fxLayout="row" fxLayoutAlign="space-between center">
     <span fxLayoutGap="0.5rem" fxLayoutAlign="center center">
       <mat-icon color="accent">favorite</mat-icon><span>Favourites</span>
@@ -16,6 +16,7 @@
         <span>{{recipe?.title}}</span>
       </div>
     </div>
+    <mat-divider></mat-divider>
   </div>
 </div>
 

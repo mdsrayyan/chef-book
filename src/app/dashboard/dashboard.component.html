@@ -1,6 +1,5 @@
 <div fxFlex="100%" fxLayout="column" fxLayoutGap="2rem">
   <book-favourite-widget [recipeList]="favouriteRecipeList$ | async"></book-favourite-widget>
-  <mat-divider></mat-divider>
   <div class="recent-profile--wrapper" fxFlex="100%" fxLayout="row" fxLayoutGap="2rem">
     <book-recent-widget fxFlex="70%" [recipeList]="recipeList$ | async"></book-recent-widget>
     <mat-divider [vertical]="true"></mat-divider>
