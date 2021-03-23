@@ -48,7 +48,7 @@
       </mat-form-field>
     </div>
     <div class="form-group" fxFlex="1 1 50%">
-      <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+      <ngx-dropzone (change)="onSelect($event)" [multiple]="false" *ngIf="mode === 'ADD'">
         <ngx-dropzone-label>Drop your recipe image here!</ngx-dropzone-label>
         <ngx-dropzone-image-preview class="image-preview" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f"
                                     [removable]="true" ngProjectAs="ngx-dropzone-preview">
@@ -60,7 +60,7 @@
   <div fxLayoutAlign="end end">
     <button class="register-button" color="accent" [disabled]="addRecipeForm?.invalid"
             mat-raised-button type="submit">
-      Add My Recipe
+      {{ mode === 'ADD' ? 'Add My Recipe' : 'Update Recipe' }}
     </button>
   </div>
 </form>

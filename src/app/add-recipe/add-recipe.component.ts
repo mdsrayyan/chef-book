@@ -13,17 +13,22 @@ import {HelperService} from '../core/helper.service';
 export class AddRecipeComponent implements OnInit {
   files: File[] = [];
   addRecipeForm: FormGroup;
+  mode: string;
+  recipeID: string;
 
   constructor(private route: ActivatedRoute,
               private readonly router: Router,
               private readonly helperService: HelperService,
               private recipeService: RecipesService) {
+    this.mode = 'ADD';
     this.addRecipeForm = this.helperService.createRecipeFormGroup(new Recipe({}));
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       if (params && params.id) {
+        this.recipeID = params.id;
+        this.mode = 'EDIT';
         this.recipeService.getRecipeById(params.id).subscribe((recipe) => {
           this.addRecipeForm = this.helperService.createRecipeFormGroup(new Recipe(recipe));
         });
@@ -61,9 +66,14 @@ export class AddRecipeComponent implements OnInit {
    */
   onSubmit(formDirective: FormGroupDirective): void {
     const payload = formDirective.form.value as Recipe;
-    payload.addedDate = new Date().toDateString();
     payload.modifiedDate = new Date().toDateString();
-    this.recipeService.addRecipe(payload, this.files[0]);
+    if (this.mode === 'ADD') {
+      payload.addedDate = new Date().toDateString();
+      this.recipeService.addRecipe(payload, this.files[0]);
+    } else {
+      this.recipeService.updateRecipe(this.recipeID , payload).then(() => this.router.navigate([`recipe/${this.recipeID}`]));
+    }
   }
+
 
 }

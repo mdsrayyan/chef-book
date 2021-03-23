@@ -76,22 +76,32 @@ export class RecipesService {
   }
 
   addRecipe(data: Recipe, photo: File){
-    const filePath = `${photo.name}_${new Date().getTime()}`;
-    const fileRef = this.fireStorage.ref(filePath);
-    this.fireStorage.upload(filePath, photo).snapshotChanges().pipe(
-      finalize (() => {
-        fileRef.getDownloadURL().subscribe((url) => {
-          data.filePath = url;
-          return this.fireService.collection('recipes').add(data)
-            .then((docRef) => {
-              this.router.navigate([`recipe/${docRef.id}`]);
-            })
-            .catch(() => {
-              return null
-            });
+    if(photo) {
+      const filePath = `${photo.name}_${new Date().getTime()}`;
+      const fileRef = this.fireStorage.ref(filePath);
+      this.fireStorage.upload(filePath, photo).snapshotChanges().pipe(
+        finalize (() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            data.filePath = url;
+            return this.fireService.collection('recipes').add(data)
+              .then((docRef) => {
+                this.router.navigate([`recipe/${docRef.id}`]);
+              })
+              .catch(() => {
+                return null
+              });
+          })
         })
-      })
-    ).subscribe();
+      ).subscribe();
+    } else {
+      this.fireService.collection('recipes').add(data)
+        .then((docRef) => {
+          this.router.navigate([`recipe/${docRef.id}`]);
+        })
+        .catch(() => {
+          return null
+        });
+    }
   }
 
   deleteRecipe(id: string) {
