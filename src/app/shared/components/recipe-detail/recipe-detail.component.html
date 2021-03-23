@@ -3,8 +3,8 @@
     <book-long-description-loader></book-long-description-loader>
   </div>
   <div *ngIf="recipe" fxFlex="100%" fxLayout="column" fxLayoutGap="2rem">
-    <div>
-      <div fxLayoutAlign="space-between center">
+    <div fxLayoutGap.lt-lg="2rem" fxLayout.lt-lg="column">
+      <div fxLayoutAlign.lg="space-between center" fxLayout.lt-lg="column" fxFlex.lt-lg="100%">
         <h1>{{recipe?.title}}</h1>
 
         <div fxLayout="row" fxLayoutGap="1rem">
