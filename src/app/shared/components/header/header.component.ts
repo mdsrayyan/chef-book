@@ -14,11 +14,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigate(path) {
+  navigate(path: string) {
     this.router.navigate([`/${path}`]);
   }
 
-  navigateCategory(path) {
+  navigateCategory(path: string) {
     this.router.navigate([`/category/${path}`]);
   }
 }

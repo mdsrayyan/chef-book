@@ -75,7 +75,7 @@ export class RecipesService {
       });
   }
 
-  addRecipe(data: Recipe, photo){
+  addRecipe(data: Recipe, photo: File){
     const filePath = `${photo.name}_${new Date().getTime()}`;
     const fileRef = this.fireStorage.ref(filePath);
     this.fireStorage.upload(filePath, photo).snapshotChanges().pipe(
@@ -94,7 +94,7 @@ export class RecipesService {
     ).subscribe();
   }
 
-  deleteRecipe(id) {
+  deleteRecipe(id: string) {
       return this.fireService.collection('recipes').doc(id).delete()
         .then(() => {
           return true;

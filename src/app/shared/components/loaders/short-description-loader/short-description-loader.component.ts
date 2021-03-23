@@ -9,7 +9,10 @@ export class ShortDescriptionLoaderComponent implements OnInit {
   @Input()
   count: number;
   countArray: number[];
-  constructor() { }
+  constructor() {
+    this.count = 0;
+    this.countArray = [];
+  }
 
   ngOnInit(): void {
     this.countArray = Array(this.count);

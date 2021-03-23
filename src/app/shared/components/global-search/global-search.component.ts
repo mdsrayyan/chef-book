@@ -15,12 +15,12 @@ import {HelperService} from '../../../core/helper.service';
 export class GlobalSearchComponent implements OnInit {
 
   myControl = new FormControl();
-  options: Recipe[];
-  filteredOptions: Observable<Recipe[]>;
-  recipeList$: Observable<Recipe[]>;
+  options!: Recipe[];
+  filteredOptions!: Observable<Recipe[]>;
   constructor(private readonly recipeService: RecipesService,
               private readonly router: Router,
-              public readonly helperService: HelperService) { }
+              public readonly helperService: HelperService) {
+  }
 
   ngOnInit(): void {
     this.recipeService.getRecipeList().subscribe((recipeList) => {
@@ -34,8 +34,7 @@ export class GlobalSearchComponent implements OnInit {
 
   private _filter(value: string): Recipe[] {
     const filterValue = value.toLowerCase();
-
-    return this.options && this.options.length && this.options.filter(option => option.title.toLowerCase().indexOf(filterValue) === 0);
+    return this.options && this.options.filter(option => option.title && option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 
   navigate(option: Recipe): void {

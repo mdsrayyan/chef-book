@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormGroupDirective} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RecipesService} from '../core/recipes.service';
 import {Recipe} from '../shared/models/book.model';
-import firebase from 'firebase';
+import {HelperService} from '../core/helper.service';
 
 @Component({
   selector: 'book-add-recipe',
@@ -13,49 +13,44 @@ import firebase from 'firebase';
 export class AddRecipeComponent implements OnInit {
   files: File[] = [];
   addRecipeForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,
-              private route: ActivatedRoute,
+
+  constructor(private route: ActivatedRoute,
               private readonly router: Router,
-              private recipeService: RecipesService) { }
+              private readonly helperService: HelperService,
+              private recipeService: RecipesService) {
+    this.addRecipeForm = this.helperService.createRecipeFormGroup(new Recipe({}));
+  }
 
   ngOnInit(): void {
-    this.addRecipeForm = this.createRecipeFormGroup(new Recipe({}));
     this.route.params.subscribe(params => {
       if (params && params.id) {
         this.recipeService.getRecipeById(params.id).subscribe((recipe) => {
-          this.addRecipeForm = this.createRecipeFormGroup(new Recipe(recipe));
+          this.addRecipeForm = this.helperService.createRecipeFormGroup(new Recipe(recipe));
         });
       }
     });
   }
-  createRecipeFormGroup(data: Recipe) {
-    data = data || {};
-    return this.formBuilder.group({
-      title: [data.title || '', Validators.required],
-      category: [data.category || '', Validators.required],
-      caption: [data.caption || ''],
-      preparationTime: [data.preparationTime || '', Validators.required],
-      cookTime: [data.cookTime || '', Validators.required],
-      servings: [data.servings || '', Validators.required],
-      description: [data.description || ''],
-      ingredients: [data.ingredients || '', Validators.required],
-      instructions: [data.instructions || '', Validators.required],
-      addedDate: [data.addedDate || ''],
-      modifiedDate: [data.modifiedDate || ''],
-      files: [data.files || '']
-    });
-  }
 
-  onSelect(event) {
-    console.log(event);
+  /**
+   * @summary Adds a file when dropped or selected
+   * @param event - This holds event from click event and files that are uploaded
+   */
+  onSelect(event): void {
     this.files.push(...event.addedFiles);
   }
 
-  onRemove(event) {
-    console.log(event);
+  /**
+   * @summary Click event fired when remove button clicked in drag-drop zone
+   * @param event - This holds event from click event and files that has to be removed
+   */
+  onRemove(event): void {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
+  /**
+   * @summary generate payload and calls add recipe service
+   * @param formDirective - This holds form's latest information
+   */
   onSubmit(formDirective: FormGroupDirective): void {
     const payload = formDirective.form.value as Recipe;
     payload.addedDate = new Date().toDateString();

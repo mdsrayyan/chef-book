@@ -9,8 +9,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  recipeList$: Observable<Recipe[]>;
-  favouriteRecipeList$: Observable<Recipe[]>;
+  recipeList$!: Observable<Recipe[]>;
+  favouriteRecipeList$!: Observable<Recipe[]>;
   constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {

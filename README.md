@@ -34,7 +34,7 @@ User can:
 ## Local installation
 
 - Clone this repo using `https://github.com/mdsrayyan/chef-book.git`
-- Run `npm ci` for a clean install.
+- Run `npm install` or `npm ci` for a clean install.
 - Run `npm start` to start application in your local machine.
 - Open chrome and navigate to `http://localhost:4200`
 
@@ -105,4 +105,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 3. Form control name is used instead of form control to avoid strict type issues.
 4. Could have used NgRx store more to store previous searches and store latest visited recipes.
 5. Could have written e2e test cases
+6. Multiple image upload option and proper loaders
 

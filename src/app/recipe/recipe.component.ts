@@ -10,7 +10,7 @@ import {Recipe} from '../shared/models/book.model';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  recipe$: Observable<Recipe>;
+  recipe$!: Observable<Recipe>;
   constructor(private route: ActivatedRoute,
               private recipeService: RecipesService) { }
 

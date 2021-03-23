@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class FavouriteWidgetComponent implements OnInit {
   @Input()
-  recipeList: Recipe[];
+  recipeList!: Recipe[];
   maxFavItems = 4;
 
   constructor(public readonly bookStore: Store,
@@ -24,7 +24,7 @@ export class FavouriteWidgetComponent implements OnInit {
     });
   }
 
-  navigateCategory(path) {
+  navigateCategory(path: string): void {
     this.router.navigate([`/category/${path}`]);
   }
 

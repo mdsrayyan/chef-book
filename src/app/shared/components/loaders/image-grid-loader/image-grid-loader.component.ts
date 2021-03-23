@@ -13,6 +13,9 @@ export class ImageGridLoaderComponent implements OnInit {
   countArray: number[];
 
   constructor() {
+    this.count = 0;
+    this.layout = 'row';
+    this.countArray = [];
   }
 
   ngOnInit(): void {

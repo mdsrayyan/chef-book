@@ -1,6 +1,6 @@
 <div class="chef-intro--wrapper" fxFlex="100%" fxLayout="column" fxLayoutGap="1rem" *ngIf="( aboutMe$ | async ) as aboutMe">
   <h2 fxLayoutAlign="center center"> {{aboutMe?.welcomeNote}}</h2>
-  <img alt="Profile Photo" class="profile-pic fadeInEffect" src="../../../../assets/chef-profile-pic.JPG">
+  <img alt="Profile Photo" class="profile-pic fadeInEffect" [src]="aboutMe?.profilePath">
   <div>
     <p class="intro-text fadeInEffect">
       {{aboutMe?.shortInto}}

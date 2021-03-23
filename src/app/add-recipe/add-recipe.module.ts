@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AddRecipeComponent } from './add-recipe.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AddRecipeComponent} from './add-recipe.component';
 import {SharedModule} from '../shared/shared.module';
 import {AddRecipeRoutingModule} from './add-recipe-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgxDropzoneModule} from 'ngx-dropzone';
 import {ReactiveFormsModule} from '@angular/forms';
-
 
 
 @NgModule({
@@ -20,4 +19,5 @@ import {ReactiveFormsModule} from '@angular/forms';
     NgxDropzoneModule
   ]
 })
-export class AddRecipeModule { }
+export class AddRecipeModule {
+}

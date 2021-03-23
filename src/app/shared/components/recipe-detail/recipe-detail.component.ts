@@ -2,8 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Recipe} from '../../models/book.model';
 import {Router} from '@angular/router';
 import {favouritesChange} from '../../../store/actions/case-object.actions';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {RecipesService} from '../../../core/recipes.service';
+import {selectFavourites} from '../../../store';
 
 @Component({
   selector: 'book-recipe-detail',
@@ -12,7 +13,8 @@ import {RecipesService} from '../../../core/recipes.service';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input()
-  recipe: Recipe;
+  recipe!: Recipe;
+  recipeList!: Recipe[];
 
   constructor(private readonly router: Router,
               public readonly bookStore: Store,
@@ -20,6 +22,9 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.bookStore.pipe(select(selectFavourites)).subscribe((list) => {
+      this.recipeList = list;
+    });
   }
 
   editRecipe(recipe: Recipe): void {
@@ -27,7 +32,9 @@ export class RecipeDetailComponent implements OnInit {
   }
   toggleFavourites(): void {
     this.recipe.isFavourite = !this.recipe.isFavourite;
-    this.bookStore.dispatch(favouritesChange([{title: 'asdsa', caption: 'sadsad'}]));
+    this.recipesService.updateRecipe(this.recipe.id, this.recipe).then((res) => {
+      this.bookStore.dispatch(favouritesChange(this.recipeList.filter(recipeItem => recipeItem.isFavourite)));
+    });
   }
 
   deleteRecipe(recipe: Recipe) {

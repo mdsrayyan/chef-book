@@ -10,7 +10,7 @@ import {UserProfileService} from '../../../core/user-profile.service';
   styleUrls: ['./chef-intro-widget.component.scss']
 })
 export class ChefIntroWidgetComponent implements OnInit {
-  aboutMe$: Observable<About>;
+  aboutMe$!: Observable<About>;
   constructor(private readonly router: Router,
               private readonly userProfile: UserProfileService) { }
 
