@@ -1,7 +1,7 @@
 <div *ngIf="( aboutMe$ | async ) as aboutMe" class="chef-intro--wrapper" fxFlex="100%" fxLayout="column"
      fxLayoutGap="1rem">
   <h2 fxLayoutAlign="center center"> {{aboutMe?.welcomeNote}}</h2>
-  <img [src]="aboutMe?.profilePath" alt="Profile Photo" class="profile-pic fadeInEffect">
+  <img [src]="aboutMe?.profilePath" alt="Profile Photo" class="profile-pic-widget fadeInEffect">
   <div>
     <p class="intro-text fadeInEffect">
       {{aboutMe?.shortInto}}

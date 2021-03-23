@@ -32,12 +32,6 @@ img {
     object-fit: cover;
     cursor: pointer;
     transition: opacity 1s;
-
-    &.large {
-      height: 600px;
-      width: 360px;
-      object-fit: cover;
-    }
   }
 
   &.recipe-img:hover {
@@ -48,6 +42,12 @@ img {
     width: 360px;
     height: 360px;
   }
+}
+
+.large {
+  height: 600px;
+  width: 360px;
+  object-fit: cover;
 }
 
 button {
