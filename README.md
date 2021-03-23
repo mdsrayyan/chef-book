@@ -1,6 +1,6 @@
-# Cook Book
+# Chef Book
 
-- [Cook Book](#cook-book)
+- [Chef Book](#chef-book)
 - [Introduction](#introduction)
 - [Installation](#installation)
   - [Local installation](#local-installation)
