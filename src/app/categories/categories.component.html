@@ -1,6 +1,6 @@
 <div fxLayout="column">
   <h3>{{helperService?.capitalize(category)}}</h3>
-  <div fxFlex="100" fxLayout="row grid" fxLayoutGap="1rem">
+  <div fxFlex="100" fxLayout="column" fxLayout.lg="row grid" fxLayoutGap="1rem">
     <book-image-grid-loader *ngIf="fetchingData" [count]="8"
                             [layout]="'grid'"></book-image-grid-loader>
     <div *ngFor="let recipe of recipes" fxFlex="25" fxLayout="column">
