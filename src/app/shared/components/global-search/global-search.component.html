@@ -5,7 +5,7 @@
            [matAutocomplete]="auto"
            aria-label="Number"
            matInput
-           placeholder="Pick one"
+           placeholder="start searching for recipe"
            type="text">
     <mat-icon *ngIf="myControl?.value" (click)="clearControl()" class="global-search--cancel" matSuffix>cancel</mat-icon>
     <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
