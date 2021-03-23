@@ -7,7 +7,7 @@
            matInput
            placeholder="Pick one"
            type="text">
-    <mat-icon *ngIf="myControl?ch .value" (click)="clearControl()" class="global-search--cancel" matSuffix>cancel</mat-icon>
+    <mat-icon *ngIf="myControl?.value" (click)="clearControl()" class="global-search--cancel" matSuffix>cancel</mat-icon>
     <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
       <mat-option (click)="navigate(option)" *ngFor="let option of filteredOptions | async"
                   [value]="helperService.capitalize(option?.title)">
