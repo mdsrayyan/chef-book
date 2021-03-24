@@ -15,6 +15,7 @@
   - [Running unit tests](#running-unit-tests)
 - [Supported Browsers](#supported-browsers)
 - [Possible improvements](#possible-improvements)
+- [Notes](#notes)
 
 # Introduction
 
@@ -108,5 +109,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 3. Form control name is used instead of form control to avoid strict type issues.
 4. More usage of NgRx store could have been done.
 5. Could have written e2e test cases.
-6. Multiple image upload option and proper loaders.
+
+# Notes
+1. If unable to view images in Desktop version, It can be VPN issue. Try using open network for better experience
 
